@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ru" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Правила использования сайта — VIPАвто 161</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css?v=3" />
+</head>
+<body class="theme-dark bg-surface text-baseText min-h-screen">
+  <header class="sticky top-0 z-30 bg-[color:var(--header)] border-b border-[color:var(--border)] backdrop-blur-xl">
+    <div class="mx-auto max-w-6xl px-5 py-3 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <img src="images/plate-logo.svg" alt="VIPАвто 161" class="plate-logo">
+        <div class="leading-tight"></div>
+      </div>
+      <a href="index.html" class="btn-ghost text-sm">На главную</a>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-4xl px-5 pb-16 pt-12 space-y-8">
+
+    <section class="card">
+      <h1 class="text-2xl font-bold mb-3">Правила использования сайта</h1>
+      <p class="text-muted">Настоящие правила регулируют использование сайта VIPАвто 161, подачу заявок и взаимодействие с пользователями.</p>
+    </section>
+
+    <section class="card space-y-3">
+      <h2 class="text-xl font-semibold">1. Общие положения</h2>
+      <ul class="list">
+        <li>Сайт предназначен для получения информации об услугах и записи в автосервис VIPАвто 161.</li>
+        <li>Используя сайт, вы соглашаетесь с настоящими правилами и политикой конфиденциальности.</li>
+        <li>Контент сайта (тексты, изображения, цены) может обновляться без предварительного уведомления.</li>
+      </ul>
+    </section>
+
+    <section class="card space-y-3">
+      <h2 class="text-xl font-semibold">2. Заявки и запись</h2>
+      <ul class="list">
+        <li>Заявка через формы или мессенджеры не является публичной офертой и подлежит подтверждению менеджером.</li>
+        <li>Время визита согласовывается индивидуально; некоторые работы требуют диагностики перед оценкой стоимости.</li>
+        <li>Условия акции “15% на первое обслуживание при записи через сайт” уточняются менеджером и распространяются на ограниченный перечень работ.</li>
+      </ul>
+    </section>
+
+    <section class="card space-y-3">
+      <h2 class="text-xl font-semibold">3. Цены и сроки</h2>
+      <ul class="list">
+        <li>Предварительные цены и сроки могут меняться после диагностики автомобиля.</li>
+        <li>Итоговая стоимость фиксируется после согласования перечня работ и материалов.</li>
+      </ul>
+    </section>
+
+    <section class="card space-y-3">
+      <h2 class="text-xl font-semibold">4. Гарантия</h2>
+      <ul class="list">
+        <li>Гарантия предоставляется на выполненные работы и установленное оборудование согласно чеку и заказ-наряду.</li>
+        <li>Срок и условия гарантии зависят от вида работ и оборудования; уточняются при выдаче автомобиля.</li>
+      </ul>
+    </section>
+
+    <section class="card space-y-3">
+      <h2 class="text-xl font-semibold">5. Интеллектуальная собственность</h2>
+      <ul class="list">
+        <li>Материалы сайта защищены законодательством. Копирование и использование без согласия запрещены.</li>
+        <li>Логотипы StarLine, LLumar, Viper принадлежат их правообладателям и используются для информирования о партнерских продуктах.</li>
+      </ul>
+    </section>
+
+    <section class="card space-y-3">
+      <h2 class="text-xl font-semibold">6. Ограничение ответственности</h2>
+      <ul class="list">
+        <li>Сайт предоставляется “как есть”. Мы стремимся к актуальности информации, но не гарантируем полную точность цен/наличия.</li>
+        <li>Мы не несем ответственность за сбои связи, работы хостинга или сторонних сервисов.</li>
+      </ul>
+    </section>
+
+    <section class="card space-y-3">
+      <h2 class="text-xl font-semibold">7. Связь и обратная связь</h2>
+      <p class="text-muted">По вопросам использования сайта, контента или условий обращайтесь: info@vipauto161.ru или +7 (928) 777-7009.</p>
+    </section>
+
+    <section class="card space-y-3">
+      <h2 class="text-xl font-semibold">8. Изменения правил</h2>
+      <p class="text-muted">Мы можем обновлять правила. Актуальная версия всегда доступна на этой странице. Дата последнего обновления: 08.12.2025.</p>
+    </section>
+  </main>
+  <script>
+    (function() {
+      const saved = localStorage.getItem('theme');
+      const mode = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.body.classList.toggle('theme-light', mode === 'light');
+      document.body.classList.toggle('theme-dark', mode === 'dark');
+    })();
+  </script>
+</body>
+</html>
+
