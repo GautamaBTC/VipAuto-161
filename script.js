@@ -72,39 +72,172 @@ function showToast(message) {
   setTimeout(() => toast.classList.remove("show"), 3200);
 }
 
-// Lead form
-const form = document.getElementById("lead-form");
-form?.addEventListener("submit", e => {
-  e.preventDefault();
-  const data = new FormData(form);
-  const name = data.get("name") || "клиент";
-  showToast(`Спасибо, ${name}! Мы свяжемся с вами в рабочее время.`);
-  form.reset();
+const modalForm = document.getElementById("modal-form");
+
+function serializeForm(form) {
+  const formData = new FormData(form);
+  const payload = {};
+  formData.forEach((value, key) => {
+    if (payload[key]) {
+      payload[key] = [].concat(payload[key], value);
+    } else {
+      payload[key] = value;
+    }
+  });
+  return payload;
+}
+
+function toggleFormLoading(form, isLoading) {
+  const submitBtn = form.querySelector('button[type="submit"]');
+  submitBtn?.toggleAttribute("disabled", isLoading);
+  if (submitBtn) {
+    submitBtn.dataset.loading = isLoading ? "true" : "false";
+  }
+}
+
+async function handleFormSubmit(event, form) {
+  event.preventDefault();
+  const endpoint = form.dataset.endpoint;
+  if (!endpoint) return;
+  const statusEl = form.querySelector(".form-status");
+  if (statusEl) statusEl.textContent = "Отправляем...";
+  toggleFormLoading(form, true);
+  const payload = serializeForm(form);
+  payload.formName = form.dataset.form || form.id || "lead";
+  payload.source = "vipauto161.ru";
+  payload.timestamp = new Date().toISOString();
+  payload._subject = `Новая заявка (${payload.formName})`;
+  payload._template = "table";
+
+  try {
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
+    if (!response.ok) throw new Error("Failed to submit form");
+    const name = payload.name || "клиент";
+    if (statusEl) {
+      statusEl.textContent = "Заявка отправлена, перезвоним в рабочие часы.";
+      setTimeout(() => { statusEl.textContent = ""; }, 3200);
+    }
+    showToast(`Спасибо, ${name}! Мы свяжемся с вами в рабочее время.`);
+    form.reset();
+    if (form === modalForm) {
+      closeModal();
+    }
+  } catch (error) {
+    console.error("Form submit error:", error);
+    if (statusEl) {
+      statusEl.textContent = "Не удалось отправить. Попробуйте ещё раз или позвоните нам.";
+      setTimeout(() => { statusEl.textContent = ""; }, 3200);
+    }
+    showToast("Не получилось отправить заявку. Позвоните 8 (928) 7777-009.");
+    const fallback = form.dataset.fallback;
+    if (fallback) {
+      setTimeout(() => window.location.href = fallback, 2000);
+    }
+  } finally {
+    toggleFormLoading(form, false);
+  }
+}
+
+document.querySelectorAll("form[data-endpoint]").forEach(form => {
+  form.addEventListener("submit", event => handleFormSubmit(event, form));
 });
 
-// Modal form
-const modalForm = document.getElementById("modal-form");
-modalForm?.addEventListener("submit", e => {
-  e.preventDefault();
-  const data = new FormData(modalForm);
-  const name = data.get("name") || "клиент";
-  showToast(`Заявка принята, ${name}. Скоро перезвоним.`);
-  closeModal();
-  modalForm.reset();
+const estimateForm = document.getElementById("estimate-form");
+const estimateResult = document.getElementById("estimateResult");
+const priceFormatter = new Intl.NumberFormat("ru-RU", {
+  style: "currency",
+  currency: "RUB",
+  maximumFractionDigits: 0
 });
+
+const basePrices = {
+  electric: 2500,
+  light: 4900,
+  aircon: 4200,
+  starline: 11200,
+  tint: 6200,
+  multimedia: 7600
+};
+
+const carClassMultiplier = {
+  compact: 1,
+  crossover: 1.18,
+  business: 1.32
+};
+
+const urgencyMultiplier = {
+  standard: 1,
+  fast: 1.25
+};
+
+function calculateEstimate() {
+  if (!estimateForm || !estimateResult) return;
+  const service = estimateForm.elements.service.value;
+  const carClass = estimateForm.elements.carClass.value;
+  const urgency = estimateForm.elements.urgency.value;
+  const diagnosticsOnly = estimateForm.elements.needDiagnostics.checked;
+  const base = basePrices[service] || 3000;
+  const totalMultiplier = (carClassMultiplier[carClass] || 1) * (urgencyMultiplier[urgency] || 1);
+  let total = Math.round((base * totalMultiplier) / 100) * 100;
+  if (diagnosticsOnly) {
+    const diagnosticsEstimate = Math.round((base * 0.65) / 100) * 100;
+    total = Math.max(2500, diagnosticsEstimate);
+  }
+  estimateResult.textContent = `Ориентировочно ${priceFormatter.format(total)}`;
+}
+
+function buildEstimateSummary() {
+  if (!estimateForm) return "";
+  const serviceSelect = estimateForm.elements.service;
+  const classSelect = estimateForm.elements.carClass;
+  const urgencySelect = estimateForm.elements.urgency;
+  const serviceText = serviceSelect?.options?.[serviceSelect.selectedIndex]?.textContent?.trim() || "";
+  const classText = classSelect?.options?.[classSelect.selectedIndex]?.textContent?.trim() || "";
+  const urgencyText = urgencySelect?.options?.[urgencySelect.selectedIndex]?.textContent?.trim() || "";
+  const diagnosticsOnly = estimateForm.elements.needDiagnostics.checked ? "Только диагностика" : "Полный объём работ";
+  const priceLine = estimateResult?.textContent?.replace("Ориентировочно", "").trim() || "";
+  return [
+    `Услуга: ${serviceText}`,
+    `Класс авто: ${classText}`,
+    `Срок: ${urgencyText}`,
+    diagnosticsOnly,
+    `Бюджет: ${priceLine}`
+  ].join("; ");
+}
+
+estimateForm?.addEventListener("change", calculateEstimate);
+estimateForm?.addEventListener("input", calculateEstimate);
+calculateEstimate();
 
 // Modal logic
 const modalOverlay = document.getElementById("modal-overlay");
 const focusableSelector = 'a[href], button, textarea, input, select';
 let lastFocused = null;
+let modalTrigger = null;
 
-function openModal() {
+function openModal(evt) {
+  evt?.preventDefault();
+  modalTrigger = evt?.currentTarget || null;
   modalOverlay?.classList.add("show");
   modalOverlay?.setAttribute("aria-hidden", "false");
   lastFocused = document.activeElement;
   body.classList.add("no-scroll");
   const focusables = modalOverlay?.querySelectorAll(focusableSelector);
   focusables?.[0]?.focus();
+  if (modalTrigger?.dataset.prefill === "estimate" && modalForm) {
+    const commentField = modalForm.querySelector('textarea[name="comment"]');
+    const summary = buildEstimateSummary();
+    if (commentField && summary) {
+      commentField.value = summary;
+    }
+  }
 }
 
 function closeModal() {
@@ -112,6 +245,8 @@ function closeModal() {
   modalOverlay?.setAttribute("aria-hidden", "true");
   body.classList.remove("no-scroll");
   lastFocused?.focus();
+  modalForm?.querySelector(".form-status")?.textContent = "";
+  modalTrigger = null;
 }
 
 document.querySelectorAll("[data-open-modal]").forEach(btn => {

@@ -22,6 +22,7 @@
   --shadow: 0 14px 38px rgba(12, 18, 36, 0.28);
   --radius: 16px;
   --radius-sm: 12px;
+  --gradient-opacity: 1;
 }
 
 .theme-dark {
@@ -42,14 +43,28 @@
   --muted: var(--muted-light);
   --border: var(--border-light);
   --header: var(--header-light);
+  --gradient-opacity: 0.35;
 }
 
 body {
   font-family: var(--font);
-  background: linear-gradient(135deg, #15c7c0, #6f8bff 45%, #8a4dff);
+  background: var(--bg);
   color: var(--baseText);
   transition: background 0.4s ease, color 0.4s ease;
   position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #15c7c0, #6f8bff 45%, #8a4dff);
+  opacity: var(--gradient-opacity);
+  z-index: -1;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
 }
 
 .bg-surface { background: var(--bg); }
@@ -159,6 +174,35 @@ body {
   height: 48px;
   width: auto;
   display: block;
+}
+
+.hero-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  line-height: 1.2;
+}
+
+.hero-brand__title {
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+
+.hero-brand__tagline {
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.header-phone {
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.header-phone:hover {
+  text-decoration: underline;
 }
 
 .social {
@@ -303,6 +347,13 @@ header {
 
 .btn-ghost:hover {
   background: rgba(255, 255, 255, 0.14);
+}
+
+button[data-loading="true"],
+.btn-primary[disabled],
+.btn-ghost[disabled] {
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 .pill {
@@ -497,6 +548,12 @@ header {
 }
 
 .review { min-height: 140px; }
+.review-rating {
+  font-size: 16px;
+  letter-spacing: 2px;
+  color: #ffd66d;
+  margin-bottom: 8px;
+}
 
 .package-badge {
   display: inline-flex;
@@ -594,6 +651,11 @@ header {
 .field:focus {
   outline: 2px solid rgba(27, 216, 255, 0.35);
   border-color: rgba(27, 216, 255, 0.6);
+}
+
+.field[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 select.field {
@@ -737,6 +799,78 @@ select.field {
 .accordion.open .accordion-toggle::after {
   content: "–";
   color: var(--accent);
+}
+
+.form-status {
+  min-height: 18px;
+}
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.timeline-step {
+  padding-top: 32px;
+  position: relative;
+}
+
+.timeline-count {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  position: absolute;
+  top: -12px;
+  left: 16px;
+  color: var(--accent);
+  box-shadow: 0 6px 16px rgba(12, 18, 36, 0.3);
+}
+
+.calculator {
+  background: linear-gradient(135deg, rgba(27, 216, 255, 0.08), rgba(122, 93, 255, 0.12));
+  border: 1px solid rgba(27, 216, 255, 0.24);
+}
+
+.estimate-field {
+  display: grid;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.estimate-checkbox {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--baseText);
+}
+
+.estimate-checkbox input {
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+  accent-color: var(--accent);
+}
+
+.price-output {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 800;
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: var(--baseText);
 }
 
 .modal-overlay {
