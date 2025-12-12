@@ -86,12 +86,7 @@
         </a>
         </div>
 
-      <div id="menu-icon" aria-label="Открыть меню" aria-expanded="false" role="button">
-        <span class="bar bar-1"></span>
-        <span class="bar bar-2"></span>
-      </div>
-
-      <nav aria-label="Основная навигация">
+      <nav id="main-navigation" aria-label="Основная навигация">
         <ul>
           <li><a href="#about">О нас</a></li>
           <li class="dropdown">
@@ -127,6 +122,9 @@
         </ul>
       </nav>
 
+      <!-- Мобильная CTA по центру -->
+      <button class="btn-primary nav-call nav-call--mobile" type="button" data-open-modal="booking">Заявка</button>
+
       <div class="nav-actions">
         <button id="themeToggle" class="theme-toggle theme-toggle--switch" type="button" aria-label="Переключить тему">
           <span class="theme-toggle__track" aria-hidden="true"></span>
@@ -137,9 +135,48 @@
         </button>
         <a class="nav-phone" href="tel:+79287777009">8 (928) 7777-009</a>
         <button class="btn-primary nav-call" type="button" data-open-modal="booking">Заявка</button>
+        <button id="menu-icon" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobileMenuOverlay">
+          <span class="bar bar-1"></span>
+          <span class="bar bar-2"></span>
+          <span class="bar bar-3"></span>
+        </button>
       </div>
     </div>
   </header>
+
+  <!-- === ПОЛНОЭКРАННОЕ МОБИЛЬНОЕ МЕНЮ === -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay" aria-hidden="true">
+    <div class="mobile-menu-container">
+      <!-- Навигация -->
+      <nav class="mobile-menu-nav" aria-label="Мобильная навигация">
+        <ul class="mobile-menu-list">
+          <li><a href="#about" class="mobile-menu-link">О нас</a></li>
+          <li><a href="#services" class="mobile-menu-link">Услуги</a></li>
+          <li><a href="#packages" class="mobile-menu-link">Готовые комплекты</a></li>
+          <li><a href="#pro" class="mobile-menu-link">PRO-услуги</a></li>
+          <li><a href="#starline" class="mobile-menu-link">StarLine</a></li>
+          <li><a href="#shop" class="mobile-menu-link">Автомагазин</a></li>
+          <li><a href="#reviews" class="mobile-menu-link">Отзывы</a></li>
+          <li><a href="#contacts" class="mobile-menu-link">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <!-- Нижний блок: Переключатель темы + Логотип -->
+      <div class="mobile-menu-footer">
+        <!-- Переключатель темы (клон для мобильного меню) -->
+        <div class="mobile-menu-theme">
+          <button id="themeToggleMobile" class="theme-toggle theme-toggle--switch" type="button" aria-label="Переключить тему">
+            <span class="theme-toggle__track" aria-hidden="true"></span>
+            <span class="theme-toggle__thumb" aria-hidden="true">
+              <span class="theme-toggle__sun"></span>
+              <span class="theme-toggle__moon"></span>
+            </span>
+          </button>
+          <span class="mobile-menu-theme-label">Тема оформления</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Custom Radio Player -->
   <aside class="radio-bar" aria-label="Радиоплеер" role="complementary">

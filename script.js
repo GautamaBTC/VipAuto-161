@@ -274,7 +274,8 @@ function updateVolumeIcon(volume) {
 if (stationName) stationName.textContent = radioStations[0].name;
 if (trackInfo) trackInfo.textContent = 'Нажмите Play для запуска';
 
-// Динамическая позиция радиобара под хедером
+// === ДИНАМИЧЕСКОЕ ПОЗИЦИОНИРОВАНИЕ РАДИОПЛЕЕРА ПОД HEADER ===
+// Плеер должен всегда прилипать сразу под header, учитывая его высоту
 function updateRadioBarPosition() {
   const header = document.getElementById('header');
   const radioBar = document.querySelector('.radio-bar');
@@ -292,14 +293,18 @@ if (document.readyState === 'loading') {
   updateRadioBarPosition();
 }
 
-// Обновляем при ресайзе окна
-window.addEventListener('resize', updateRadioBarPosition);
+// Обновляем при ресайзе окна (debounced)
+let resizeTimeout;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(updateRadioBarPosition, 100);
+});
 
-// Обновляем при изменении размера хедера
-const header = document.getElementById('header');
-if (header) {
+// Обновляем при изменении размера header (ResizeObserver)
+const headerEl = document.getElementById('header');
+if (headerEl && 'ResizeObserver' in window) {
   const resizeObserver = new ResizeObserver(updateRadioBarPosition);
-  resizeObserver.observe(header);
+  resizeObserver.observe(headerEl);
 }
 
 function setTheme(mode) {
@@ -323,11 +328,34 @@ themeToggle?.addEventListener("click", () => {
   }
 });
 
+// === ПЛАВНЫЙ СКРОЛЛ С УЧЕТОМ HEADER + ПЛЕЕР ===
+// Вычисляем высоту header + плеера динамически
+function getFixedHeaderHeight() {
+  const header = document.getElementById('header');
+  const radioBar = document.querySelector('.radio-bar');
+  
+  let totalHeight = 0;
+  
+  if (header) {
+    totalHeight += header.offsetHeight;
+  }
+  
+  if (radioBar) {
+    totalHeight += radioBar.offsetHeight;
+  }
+  
+  // Добавляем небольшой отступ (16px для комфорта)
+  totalHeight += 16;
+  
+  return totalHeight;
+}
+
 // Custom smooth scroll with controllable duration (optimized: 1s)
 function smoothScrollTo(target, duration = 1000) {
   const startY = window.scrollY;
-  const endY = target.getBoundingClientRect().top + window.scrollY;
-  const distance = endY - startY;
+  const headerHeight = getFixedHeaderHeight();
+  const targetY = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+  const distance = targetY - startY;
   const startTime = performance.now();
   const ease = t => (t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t); // easeInOutQuad
 
@@ -357,42 +385,101 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   });
 });
 
-// Responsive nav (new menu)
+// === ПОЛНОЭКРАННОЕ МОБИЛЬНОЕ МЕНЮ ===
 const menuIcon = document.getElementById("menu-icon");
-const navMenu = document.querySelector("#header nav");
+const mobileMenuOverlay = document.getElementById("mobileMenuOverlay");
+const themeToggleMobile = document.getElementById("themeToggleMobile");
 
-function closeNav() {
-  navMenu?.classList.remove("open");
+function closeMobileMenu() {
+  mobileMenuOverlay?.classList.remove("active");
   menuIcon?.classList.remove("active");
   menuIcon?.setAttribute("aria-expanded", "false");
+  menuIcon?.setAttribute("aria-label", "Открыть меню");
+  mobileMenuOverlay?.setAttribute("aria-hidden", "true");
   document.body.classList.remove("no-scroll");
 }
 
-function openNav() {
-  navMenu?.classList.add("open");
+function openMobileMenu() {
+  mobileMenuOverlay?.classList.add("active");
   menuIcon?.classList.add("active");
   menuIcon?.setAttribute("aria-expanded", "true");
+  menuIcon?.setAttribute("aria-label", "Закрыть меню");
+  mobileMenuOverlay?.setAttribute("aria-hidden", "false");
   document.body.classList.add("no-scroll");
 }
 
-function toggleNav() {
-  if (navMenu?.classList.contains("open")) {
-    closeNav();
+function toggleMobileMenu() {
+  if (mobileMenuOverlay?.classList.contains("active")) {
+    closeMobileMenu();
   } else {
-    openNav();
+    openMobileMenu();
   }
 }
 
-menuIcon?.addEventListener("click", toggleNav);
+// Клик по бургер-иконке
+menuIcon?.addEventListener("click", toggleMobileMenu);
 
 // Закрытие меню при клике на ссылку
-document.querySelectorAll("#header nav a").forEach(link => {
-  link.addEventListener("click", () => {
-    if (navMenu?.classList.contains("open")) {
-      closeNav();
-    }
+document.querySelectorAll(".mobile-menu-link").forEach(link => {
+  link.addEventListener("click", (e) => {
+    // Небольшая задержка для плавности перед закрытием
+    setTimeout(() => closeMobileMenu(), 150);
   });
 });
+
+// Закрытие меню при клике на overlay (вне контента меню)
+mobileMenuOverlay?.addEventListener("click", (e) => {
+  if (e.target === mobileMenuOverlay) {
+    closeMobileMenu();
+  }
+});
+
+// Закрытие по ESC
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && mobileMenuOverlay?.classList.contains("active")) {
+    closeMobileMenu();
+  }
+});
+
+// Синхронизация переключателей темы (desktop + mobile)
+if (themeToggleMobile) {
+  // Функция синхронизации состояния обоих переключателей
+  function syncThemeToggles(mode) {
+    // Десктопный переключатель
+    if (themeToggle) {
+      themeToggle.dataset.mode = mode;
+      themeToggle.setAttribute("aria-pressed", mode === "dark" ? "true" : "false");
+      themeToggle.setAttribute("aria-label", mode === "light" ? "Светлая тема" : "Тёмная тема");
+    }
+    
+    // Мобильный переключатель
+    themeToggleMobile.dataset.mode = mode;
+    themeToggleMobile.setAttribute("aria-pressed", mode === "dark" ? "true" : "false");
+    themeToggleMobile.setAttribute("aria-label", mode === "light" ? "Светлая тема" : "Тёмная тема");
+  }
+  
+  // Синхронизируем состояние при загрузке
+  const currentTheme = body.classList.contains("theme-light") ? "light" : "dark";
+  syncThemeToggles(currentTheme);
+  
+  // Обработчик клика для мобильного переключателя
+  themeToggleMobile.addEventListener("click", () => {
+    const next = body.classList.contains("theme-light") ? "dark" : "light";
+    setTheme(next);
+    syncThemeToggles(next);
+  });
+  
+  // Синхронизируем при изменении через десктопный переключатель
+  if (themeToggle) {
+    const originalToggleHandler = themeToggle.onclick;
+    themeToggle.addEventListener("click", () => {
+      setTimeout(() => {
+        const current = body.classList.contains("theme-light") ? "light" : "dark";
+        syncThemeToggles(current);
+      }, 50);
+    });
+  }
+}
 
 
 // Toast helper
