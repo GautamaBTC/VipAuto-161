@@ -33,6 +33,8 @@ const body = document.body;
 const themeToggle = document.getElementById("themeToggle");
 const savedTheme = localStorage.getItem("theme");
 const gearIcon = themeToggle?.querySelector(".theme-toggle__thumb");
+const themeToggleMobile = document.getElementById("themeToggleMobile");
+const mobileThumb = themeToggleMobile?.querySelector(".theme-toggle__thumb");
 // Always start with light theme on first visit
 setTheme(savedTheme || "light");
 
@@ -315,6 +317,11 @@ function setTheme(mode) {
     themeToggle.setAttribute("aria-label", mode === "light" ? "Светлая тема" : "Тёмная тема");
     themeToggle.dataset.mode = mode;
   }
+  if (themeToggleMobile) {
+    themeToggleMobile.setAttribute("aria-pressed", mode === "light" ? "false" : "true");
+    themeToggleMobile.setAttribute("aria-label", mode === "light" ? "Светлая тема" : "Тёмная тема");
+    themeToggleMobile.dataset.mode = mode;
+  }
   localStorage.setItem("theme", mode);
 }
 
@@ -388,7 +395,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 // === ПОЛНОЭКРАННОЕ МОБИЛЬНОЕ МЕНЮ ===
 const menuIcon = document.getElementById("menu-icon");
 const mobileMenuOverlay = document.getElementById("mobileMenuOverlay");
-const themeToggleMobile = document.getElementById("themeToggleMobile");
+// Mobile toggle already defined above
 
 function closeMobileMenu() {
   mobileMenuOverlay?.classList.remove("active");
@@ -467,6 +474,11 @@ if (themeToggleMobile) {
     const next = body.classList.contains("theme-light") ? "dark" : "light";
     setTheme(next);
     syncThemeToggles(next);
+    if (mobileThumb) {
+      mobileThumb.classList.remove("tap-animate");
+      void mobileThumb.offsetWidth;
+      mobileThumb.classList.add("tap-animate");
+    }
   });
   
   // Синхронизируем при изменении через десктопный переключатель
