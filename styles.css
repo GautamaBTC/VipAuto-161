@@ -28,6 +28,94 @@
   --radius-sm: 12px;
 }
 
+/* Убираем голубое свечение на мобильных устройствах */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-touch-callout: none;
+}
+
+/* Убираем выделение для интерактивных элементов */
+button,
+a,
+input[type="submit"],
+input[type="button"],
+input[type="checkbox"],
+input[type="radio"],
+.btn-primary,
+.btn-ghost,
+.btn-lg,
+.btn-xl,
+.nav-link,
+.theme-toggle,
+.accordion-toggle,
+.radio-btn {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+/* Убираем outline, но добавляем кастомный focus для доступности */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Разрешаем выделение текста для полей ввода */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+textarea,
+p,
+span,
+h1, h2, h3, h4, h5, h6,
+li,
+label {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+/* Убираем синее выделение на iOS/Safari */
+input,
+textarea,
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Убираем голубое свечение при клике/тапе на все интерактивные элементы */
+button:active,
+a:active,
+.btn-primary:active,
+.btn-ghost:active,
+.btn-lg:active,
+.btn-xl:active,
+.nav-link:active,
+.theme-toggle:active,
+.accordion-toggle:active,
+.radio-btn:active,
+.service-card:active,
+.card:active,
+.quick-link:active,
+.social-icon:active,
+.floating-cta:active,
+#menu-icon:active {
+  -webkit-tap-highlight-color: transparent !important;
+  tap-highlight-color: transparent !important;
+}
+
 html {
   /* Оставляем нативную прокрутку, сглаживание делаем через JS для якорей */
   scroll-behavior: auto;
@@ -765,6 +853,8 @@ header {
     display: grid;
     order: 4;
     margin-left: 8px;
+    position: relative;
+    z-index: 60;
   }
 
   #header nav {
@@ -1227,6 +1317,24 @@ header {
   font-weight: 700;
   font-size: 14px;
   border: 1px solid rgba(255, 255, 255, 0.2);
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .meta-pill {
+    padding: 8px 12px;
+    font-size: 12px;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.3;
+    flex: 1 1 auto;
+    min-width: fit-content;
+  }
+
+  .hero-meta {
+    gap: 8px;
+    justify-content: center;
+  }
 }
 
 .hero-quick-links {
@@ -1334,15 +1442,27 @@ header {
   
   /* Компактная форма на мобилках */
   .hero-form {
-    padding: 18px;
+    padding: 16px;
   }
   
   .form-header {
-    padding-bottom: 12px;
+    padding-bottom: 10px;
+    gap: 10px;
+  }
+
+  .form-header h3 {
+    font-size: 16px;
+    line-height: 1.3;
+    word-wrap: break-word;
+  }
+
+  .form-header p {
+    font-size: 12px;
   }
   
   .form-icon {
-    font-size: 28px;
+    font-size: 24px;
+    flex-shrink: 0;
   }
   
   .field {
@@ -1357,12 +1477,13 @@ header {
   
   .consent {
     padding: 8px 10px;
-    font-size: 12px;
+    font-size: 11px;
+    line-height: 1.4;
   }
   
   .form-trust {
-    font-size: 12px;
-    gap: 10px;
+    font-size: 11px;
+    gap: 8px;
   }
 }
 
@@ -1875,6 +1996,25 @@ select.field {
   padding-right: 52px;
 }
 
+@media (max-width: 640px) {
+  .floating-cta {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    padding: 10px;
+    min-height: 56px;
+    padding-right: 48px;
+  }
+
+  .floating-cta .text-sm {
+    font-size: 13px;
+  }
+
+  .floating-cta .text-xs {
+    font-size: 11px;
+  }
+}
+
 .theme-dark .floating-cta {
   background: rgba(15, 23, 42, 0.92);
   border-color: rgba(255, 255, 255, 0.18);
@@ -1934,7 +2074,7 @@ select.field {
 .accordion {
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--panel);
 }
 
 .accordion-toggle {
@@ -1944,6 +2084,18 @@ select.field {
   font-weight: 700;
   color: var(--baseText);
   position: relative;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.accordion-toggle:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.theme-light .accordion-toggle:hover {
+  background: rgba(0, 0, 0, 0.03);
 }
 
 .accordion-panel {
@@ -1951,11 +2103,13 @@ select.field {
   overflow: hidden;
   transition: max-height 0.32s ease;
   padding: 0 16px;
+  background: transparent;
 }
 
 .accordion-panel p {
   margin: 10px 0 14px;
   color: var(--muted);
+  line-height: 1.6;
 }
 
 .accordion.open .accordion-panel {
@@ -2056,9 +2210,25 @@ select.field {
 }
 
 @media (max-width: 640px) {
-  .section { margin: 50px 0; }
-  .section-head h2 { font-size: 24px; }
-  .stat { flex: 1 1 100%; }
+  .section { 
+    margin: 48px 0;
+    padding: 0 16px;
+  }
+  .section-head {
+    margin-bottom: 24px;
+  }
+  .section-head h2 { 
+    font-size: 24px;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+  .section-head p {
+    font-size: 14px;
+  }
+  .stat { 
+    flex: 1 1 100%;
+    padding: 16px;
+  }
   .marquee {
     margin: 0;
     width: 100%;
@@ -2070,38 +2240,74 @@ select.field {
   }
   .badge {
     font-size: 13px;
-    padding: 5px 8px;
+    padding: 6px 10px;
   }
   .card {
-    padding: 18px;
+    padding: 20px;
+    margin: 0 16px;
   }
   .service-card {
     padding: 20px;
+    margin-bottom: 16px;
   }
   .service-icon {
     font-size: 32px;
   }
   .service-title {
     font-size: 18px;
+    line-height: 1.3;
   }
   .btn-primary, .btn-ghost {
-    padding: 10px 12px;
-    min-height: 44px;
+    padding: 12px 16px;
+    min-height: 48px;
     font-size: 15px;
+    width: 100%;
+    justify-content: center;
   }
   .process-section {
     padding: 40px 16px;
   }
   .process-step__number {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
+    width: 44px;
+    height: 44px;
+    font-size: 22px;
   }
   .modal {
-    padding: 20px;
+    padding: 24px;
+    margin: 16px;
   }
   h1 {
-    font-size: clamp(26px, 7vw, 36px);
+    font-size: clamp(28px, 8vw, 40px);
+    line-height: 1.2;
+  }
+  h2 {
+    font-size: clamp(22px, 6vw, 32px);
+    line-height: 1.3;
+  }
+  h3 {
+    font-size: clamp(18px, 5vw, 24px);
+    line-height: 1.3;
+  }
+
+  /* Пиксельная точность padding для всех контейнеров */
+  .mx-auto, .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Единообразные отступы между элементами */
+  .space-y-4 > * + * {
+    margin-top: 16px;
+  }
+
+  .space-y-3 > * + * {
+    margin-top: 12px;
+  }
+
+  /* Кнопки всегда одинаковой высоты */
+  button, .btn-primary, .btn-ghost, .btn-lg {
+    min-height: 48px;
+    padding: 12px 20px;
   }
 }
 
@@ -2430,45 +2636,56 @@ select.field {
 @media (max-width: 640px) {
   .radio-bar {
     top: 58px;
-    min-height: 42px;
+    min-height: 36px;
+    width: 75%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0 0 12px 12px;
   }
   
   .radio-container {
-    padding: 10px 12px;
+    padding: 6px 8px;
+    min-height: 36px;
   }
   
   .radio-player {
     width: 100%;
-    padding: 8px 10px;
+    padding: 6px 8px;
+    gap: 8px;
   }
   
   .radio-btn {
-    width: 36px;
-    height: 36px;
+    width: 28px;
+    height: 28px;
   }
   
   .radio-play {
-    width: 44px;
-    height: 44px;
+    width: 36px;
+    height: 36px;
   }
 
   .radio-prev,
   .radio-next {
-    width: 32px;
-    height: 32px;
+    width: 26px;
+    height: 26px;
   }
   
   .radio-stop {
-    width: 30px;
-    height: 30px;
+    width: 24px;
+    height: 24px;
   }
 
   .radio-station-name {
-    font-size: 13px;
+    font-size: 11px;
   }
 
   .radio-track-info {
-    font-size: 11px;
+    font-size: 10px;
+  }
+
+  .radio-info {
+    min-width: 0;
+    flex: 1;
   }
 }
 
@@ -2655,13 +2872,19 @@ section, [id] {
   justify-content: center;
 }
 
-/* Anchor offset for sticky header + marquee */
+/* Anchor offset for sticky header + radio player */
 [id] {
   scroll-margin-top: 150px;
 }
 
 section[id] {
   scroll-margin-top: 150px;
+}
+
+@media (max-width: 640px) {
+  [id], section[id] {
+    scroll-margin-top: 110px;
+  }
 }
 
 .footer-link {
