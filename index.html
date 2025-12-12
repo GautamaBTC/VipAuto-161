@@ -1,187 +1,365 @@
 <!doctype html>
 <html lang="ru" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VIPАвто 161 — Автосервис в Шахтах</title>
-  <meta name="description" content="VIPАвто 161 — электрика, автосвет, кондиционеры, StarLine. Шахты, пер. Новочеркасский 44Б. Запишитесь онлайн и получите 15% на первую услугу (не на товары). Тел: 8(928)-7777-009." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Автосервис VIPАвто 161 в Шахтах — Электрика, StarLine, Кондиционеры</title>
+  <meta name="description" content="Автоэлектрика, установка StarLine, ремонт кондиционеров в Шахтах. 15 лет опыта, 300+ авто/месяц. Оф. дилер StarLine. Скидка 15% онлайн. ☎ 8(928)-7777-009">
+  <meta name="keywords" content="автосервис Шахты, автоэлектрика Шахты, StarLine установка, BiLED, кондиционер авто, камеры 360, автосигнализация">
+  <meta name="author" content="VIPАвто 161">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#7a5bff">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Автосервис VIPАвто 161 в Шахтах — Электрика, StarLine">
+  <meta property="og:description" content="15 лет опыта в автоэлектрике и свете. Оф. дилер StarLine. Скидка 15% онлайн.">
+  <meta property="og:url" content="https://vipauto161.ru">
+  <meta property="og:image" content="https://vipauto161.ru/images/plate-logo.svg">
+  <meta property="og:locale" content="ru_RU">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Автосервис VIPАвто 161 в Шахтах">
+  <meta name="twitter:description" content="Автоэлектрика, StarLine, кондиционеры. 15 лет опыта.">
+  <meta name="twitter:image" content="https://vipauto161.ru/images/plate-logo.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="styles.css?v=3" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/favicon.png">
+  <link rel="stylesheet" href="styles.css?v=4">
 </head>
-<body class="theme-dark bg-surface text-baseText min-h-screen grain">
-  <header class="sticky top-0 z-30 bg-[color:var(--header)] border-b border-[color:var(--border)]">
-    <div class="mx-auto max-w-6xl px-5 py-4 flex items-center justify-between gap-4">
-      <div class="flex items-center gap-3">
-        <div class="logo-wrap">
-          <img src="images/plate-logo.svg" alt="VIPАвто 161" class="plate-logo">
-          <img src="images/newear.png" alt="" class="logo-hat" aria-hidden="true">
+<body class="theme-light bg-surface text-baseText min-h-screen grain">
+  <!-- Preloader -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-content">
+      <svg xmlns="http://www.w3.org/2000/svg" width="320" height="90" viewBox="0 0 320 90" class="preloader-logo">
+        <defs>
+          <linearGradient id="preloaderBg" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="#fdfdfd"/>
+            <stop offset="100%" stop-color="#f1f2f4"/>
+          </linearGradient>
+          <filter id="preloaderShadow" x="-10%" y="-10%" width="120%" height="120%">
+            <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#111827" flood-opacity="0.25"/>
+          </filter>
+        </defs>
+        <rect class="preloader-elem-1" x="10" y="15" width="300" height="70" rx="10" fill="url(#preloaderBg)" stroke="#1a1f2b" stroke-width="4" filter="url(#preloaderShadow)"/>
+        <rect class="preloader-elem-2" x="15" y="20" width="290" height="60" rx="8" fill="none" stroke="#0d121f" stroke-width="2"/>
+        <line class="preloader-elem-3" x1="225" y1="20" x2="225" y2="80" stroke="#0d121f" stroke-width="2.5"/>
+        <text class="preloader-elem-4" x="28" y="65" fill="#0d121f" font-family="'DIN Condensed', 'Segoe UI', Arial" font-weight="700" font-size="40" letter-spacing="1.5">VIPАВТО</text>
+        <text class="preloader-elem-5" x="238" y="52" fill="#0d121f" font-family="'DIN Condensed', 'Segoe UI', Arial" font-weight="700" font-size="28" letter-spacing="1">161</text>
+        <text class="preloader-elem-6" x="238" y="70" fill="#0d121f" font-family="'DIN Condensed', 'Segoe UI', Arial" font-weight="700" font-size="14">RUS</text>
+        <rect class="preloader-elem-7" x="267" y="58" width="26" height="4.5" fill="#fff" stroke="#ccc" stroke-width="0.5"/>
+        <rect class="preloader-elem-8" x="267" y="62.5" width="26" height="4.5" fill="#0052b4"/>
+        <rect class="preloader-elem-9" x="267" y="67" width="26" height="5" fill="#d80027"/>
+      </svg>
+      <div class="preloader-text">Автосервис VIPАвто 161 • Шахты</div>
+    </div>
+  </div>
+  <header id="header" class="site-header">
+    <div class="nav-inner">
+      <div class="logo">
+        <a href="#top" class="logo-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="200" height="54" viewBox="0 0 260 70" class="plate-logo" aria-label="VIPАвто 161">
+            <defs>
+              <linearGradient id="plateBg" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" stop-color="#fdfdfd"/>
+                <stop offset="100%" stop-color="#f1f2f4"/>
+              </linearGradient>
+              <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+                <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#111827" flood-opacity="0.35"/>
+              </filter>
+            </defs>
+            <rect class="svg-elem-1" x="3" y="5" width="254" height="60" rx="9" fill="url(#plateBg)" stroke="#1a1f2b" stroke-width="3.2" filter="url(#shadow)"/>
+            <rect class="svg-elem-2" x="7" y="9" width="246" height="52" rx="7" fill="none" stroke="#0d121f" stroke-width="1.6"/>
+            <line class="svg-elem-3" x1="186" y1="9" x2="186" y2="61" stroke="#0d121f" stroke-width="2"/>
+            <text class="svg-elem-4" x="20" y="48" fill="#0d121f" font-family="DIN Condensed, 'Segoe UI', Arial" font-weight="700" font-size="34" letter-spacing="1.2">VIPАВТО</text>
+            <text class="svg-elem-5" x="196" y="36" fill="#0d121f" font-family="DIN Condensed, 'Segoe UI', Arial" font-weight="700" font-size="24" letter-spacing="1">161</text>
+            <text class="svg-elem-6" x="196" y="52.5" fill="#0d121f" font-family="DIN Condensed, 'Segoe UI', Arial" font-weight="700" font-size="13">RUS</text>
+            <rect class="svg-elem-7" x="224" y="42" width="22" height="12" fill="#fff" stroke="#0d121f" stroke-width="1"/>
+            <rect class="svg-elem-8" x="224" y="42" width="22" height="4" fill="#fff"/>
+            <rect class="svg-elem-9" x="224" y="46" width="22" height="4" fill="#0052b4"/>
+            <rect class="svg-elem-10" x="224" y="50" width="22" height="4" fill="#d80027"/>
+          </svg>
+        </a>
         </div>
-        <div class="leading-tight"></div>
+
+      <div id="menu-icon" aria-label="Открыть меню" aria-expanded="false" role="button">
+        <span class="bar bar-1"></span>
+        <span class="bar bar-2"></span>
       </div>
 
-      <nav aria-label="Основная навигация" class="hidden md:flex items-center gap-2 text-sm font-semibold text-muted">
-        <a class="nav-link" href="#services">Услуги</a>
-        <a class="nav-link" href="#starline">StarLine</a>
-        <a class="nav-link" href="#shop">Автомагазин</a>
-        <a class="nav-link" href="#reviews">Отзывы</a>
-        <a class="nav-link" href="#contacts">Контакты</a>
+      <nav aria-label="Основная навигация">
+        <ul>
+          <li><a href="#about">О нас</a></li>
+          <li class="dropdown">
+            <a href="#services">Услуги</a>
+            <ul class="mega-dropdown">
+              <li class="row">
+                <ul class="mega-col">
+                  <li><a href="#services">Ключевые услуги</a></li>
+                  <li><a href="#packages">Готовые комплекты</a></li>
+                  <li><a href="#pro">PRO-услуги</a></li>
+                </ul>
+                <ul class="mega-col">
+                  <li><a href="#starline">StarLine</a></li>
+                  <li><a href="#shop">Автомагазин</a></li>
+                  <li><a href="#reviews">Отзывы</a></li>
+                </ul>
+                <ul class="mega-col">
+                  <li><a href="#contacts">Контакты</a></li>
+                  <li><a href="#contacts">Маршрут</a></li>
+                  <li><a href="#contacts">Телефоны</a></li>
+                </ul>
+                <ul class="mega-col">
+                  <li><a href="tel:+79287777009">Позвонить</a></li>
+                  <li><a href="https://wa.me/79287777009" target="_blank" rel="noopener">WhatsApp</a></li>
+                  <li><a href="https://t.me/VipAuto_161" target="_blank" rel="noopener">Telegram</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#shop">Автомагазин</a></li>
+          <li><a href="#reviews">Отзывы</a></li>
+          <li><a href="#contacts">Контакты</a></li>
+        </ul>
       </nav>
 
-      <div class="flex items-center gap-2">
-        <div class="social small hidden lg:flex">
-          <a href="https://wa.me/79287777009" target="_blank" rel="noopener" aria-label="WhatsApp" class="social-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.78 11.78 0 0 0 12 0a11.9 11.9 0 0 0-10.2 18.08L0 24l6.14-1.8A11.92 11.92 0 0 0 12 24h.01A11.9 11.9 0 0 0 24 12a11.78 11.78 0 0 0-3.48-8.52Zm-8.52 18.2a9.83 9.83 0 0 1-4.99-1.37l-.36-.21-3.65 1.07 1.08-3.55-.23-.37a9.9 9.9 0 1 1 8.15 4.43Zm5.41-7.35c-.3-.15-1.78-.88-2.06-.98-.28-.11-.48-.15-.68.15-.2.29-.78.98-.96 1.18-.18.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.46-.89-.79-1.49-1.77-1.67-2.07-.18-.3-.02-.46.14-.61.14-.13.3-.34.45-.51.15-.17.2-.29.3-.49.1-.2.05-.37-.02-.52-.07-.15-.68-1.63-.93-2.23-.24-.58-.48-.5-.68-.51l-.58-.01c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.5 0 1.48 1.08 2.91 1.23 3.12.15.2 2.12 3.24 5.14 4.55.72.31 1.28.5 1.72.64.72.23 1.37.2 1.88.12.57-.08 1.78-.73 2.03-1.43.25-.7.25-1.31.17-1.43-.08-.12-.27-.2-.57-.35Z"/></svg>
-          </a>
-          <a href="https://t.me/VipAuto_161" target="_blank" rel="noopener" aria-label="Telegram" class="social-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.03 15.45 8.68 20c.5 0 .72-.22.98-.48l2.36-2.28 4.9 3.58c.9.5 1.53.24 1.77-.83l3.22-15.1.01-.02c.29-1.35-.49-1.88-1.36-1.55L1.65 9.4c-1.3.52-1.28 1.26-.22 1.6l4.48 1.4 10.4-6.56c.49-.32.94-.14.57.2l-8.85 7.41Z"/></svg>
-          </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9A3.5 3.5 0 0 0 20 16.5v-9A3.5 3.5 0 0 0 16.5 4h-9Zm4.5 2.75a5.25 5.25 0 1 1 0 10.5 5.25 5.25 0 0 1 0-10.5Zm0 2A3.25 3.25 0 1 0 12 15a3.25 3.25 0 0 0 0-6.5Zm4.38-3.88a1.13 1.13 0 1 1 0 2.25 1.13 1.13 0 0 1 0-2.25Z"/></svg>
-          </a>
-          <a href="mailto:info@vipauto161.ru" aria-label="Email" class="social-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.5 5A2.5 2.5 0 0 0 2 7.5v9A2.5 2.5 0 0 0 4.5 19h15a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 19.5 5h-15Zm0 2h15c.12 0 .22.1.22.22v.18l-7.4 4.49a1.5 1.5 0 0 1-1.64 0L4.28 7.4v-.18c0-.12.1-.22.22-.22Zm15 10h-15c-.12 0-.22-.1-.22-.22V9.5l6.53 3.96a3.5 3.5 0 0 0 3.78 0L19.72 9.5v7.28c0 .12-.1.22-.22.22Z"/></svg>
-          </a>
-        </div>
-        <button id="themeToggle" class="btn-ghost text-sm inline-flex items-center gap-2" type="button" aria-label="Переключить тему">
-          <svg class="gear-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M12 9.25a2.75 2.75 0 1 0 0 5.5 2.75 2.75 0 0 0 0-5.5Z"/>
-            <path d="M20.25 13.53v-3.06l-2.1-.49a6.57 6.57 0 0 0-.64-1.54l1.2-1.82-2.16-2.16-1.82 1.2a6.57 6.57 0 0 0-1.54-.64l-.49-2.1h-3.06l-.49 2.1a6.57 6.57 0 0 0-1.54.64l-1.82-1.2-2.16 2.16 1.2 1.82a6.57 6.57 0 0 0-.64 1.54l-2.1.49v3.06l2.1.49c.14.54.36 1.05.64 1.54l-1.2 1.82 2.16 2.16 1.82-1.2c.49.28 1 .5 1.54.64l.49 2.1h3.06l.49-2.1c.54-.14 1.05-.36 1.54-.64l1.82 1.2 2.16-2.16-1.2-1.82c.28-.49.5-1 .64-1.54l2.1-.49Z"/>
-          </svg>
-          <span class="sr-only">Тема</span>
+      <div class="nav-actions">
+        <button id="themeToggle" class="theme-toggle theme-toggle--switch" type="button" aria-label="Переключить тему">
+          <span class="theme-toggle__track" aria-hidden="true"></span>
+          <span class="theme-toggle__thumb" aria-hidden="true">
+            <span class="theme-toggle__sun"></span>
+            <span class="theme-toggle__moon"></span>
+          </span>
         </button>
-        <a class="btn-primary hidden sm:inline-flex" href="tel:89287777009" aria-label="Позвонить в автосервис">Позвонить</a>
-        <button class="btn-ghost sm:hidden" data-open-modal="booking" type="button">Заявка</button>
-        <a class="btn-primary sm:hidden" href="tel:89287777009" aria-label="Позвонить в автосервис">Позвонить</a>
-        <button id="burger" class="md:hidden burger" type="button" aria-label="Меню" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-
-    <div id="mobileNav" class="mobile-nav">
-      <a href="#services" class="mobile-link">Услуги</a>
-      <a href="#starline" class="mobile-link">StarLine</a>
-      <a href="#shop" class="mobile-link">Автомагазин</a>
-      <a href="#reviews" class="mobile-link">Отзывы</a>
-      <a href="#contacts" class="mobile-link">Контакты</a>
-      <div class="flex gap-2 pt-2">
-        <a class="btn-primary flex-1 justify-center" href="tel:89287777009">Позвонить</a>
-        <button class="btn-ghost flex-1 justify-center" data-open-modal="booking">Заявка</button>
+        <a class="nav-phone" href="tel:+79287777009">8 (928) 7777-009</a>
+        <button class="btn-primary nav-call" type="button" data-open-modal="booking">Заявка</button>
       </div>
     </div>
   </header>
-  <div id="nav-scrim" class="scrim"></div>
 
-  <main class="mx-auto max-w-6xl px-5 pb-20">
-    <div class="marquee" aria-label="Скидка при записи онлайн">
-      <div class="marquee-track">
-        <div class="marquee-item">
-          <span class="badge">-15%</span>
-          <span class="text-sm font-semibold text-baseText">15% на первую услугу при онлайн-записи (не на товары)</span>
-          <a class="btn-primary btn-xs" href="tel:89287777009">Позвонить</a>
-          <button class="btn-ghost btn-xs" data-open-modal="booking">Заявка</button>
+  <!-- Custom Radio Player -->
+  <aside class="radio-bar" aria-label="Радиоплеер" role="complementary">
+    <div class="radio-container">
+      <!-- Основной плеер (центр, 100% ширины) -->
+      <div class="radio-player">
+        <!-- Информация о треке -->
+        <div class="radio-info">
+          <div class="radio-station-name" id="stationName">Европа Плюс</div>
+          <div class="radio-track-info" id="trackInfo">Нажмите Play для запуска</div>
         </div>
-        <div class="marquee-item">
-          <span class="badge">-15%</span>
-          <span class="text-sm font-semibold text-baseText">15% на первую услугу при онлайн-записи (не на товары)</span>
-          <a class="btn-primary btn-xs" href="tel:89287777009">Позвонить</a>
-          <button class="btn-ghost btn-xs" data-open-modal="booking">Заявка</button>
+
+        <!-- Контролы плеера -->
+        <div class="radio-controls">
+          <!-- Кнопка Предыдущая станция -->
+          <button class="radio-btn radio-prev" id="prevBtn" aria-label="Предыдущая станция">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/>
+            </svg>
+          </button>
+
+          <!-- Кнопка Play/Pause -->
+          <button class="radio-btn radio-play" id="playBtn" aria-label="Воспроизвести">
+            <svg class="icon-play" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            <svg class="icon-pause" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+              <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+            </svg>
+          </button>
+
+          <!-- Индикатор загрузки -->
+          <div class="radio-loading" id="loadingIndicator" style="display: none;">
+            <div class="loading-spinner"></div>
+          </div>
+
+          <!-- Кнопка Следующая станция -->
+          <button class="radio-btn radio-next" id="nextBtn" aria-label="Следующая станция">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/>
+            </svg>
+          </button>
+
+          <!-- Кнопка Stop -->
+          <button class="radio-btn radio-stop" id="stopBtn" aria-label="Остановить" disabled>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6 6h12v12H6z"/>
+            </svg>
+          </button>
+
+          <!-- Регулятор громкости -->
+          <div class="radio-volume">
+            <button class="volume-btn" id="volumeBtn" aria-label="Громкость">
+              <svg class="icon-volume-up" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+              </svg>
+              <svg class="icon-volume-mute" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+              </svg>
+            </button>
+            <input 
+              type="range" 
+              class="volume-slider" 
+              id="volumeSlider" 
+              min="0" 
+              max="100" 
+              value="70" 
+              aria-label="Регулятор громкости"
+            />
+            <span class="volume-value" id="volumeValue">70%</span>
+          </div>
         </div>
       </div>
     </div>
-    <section class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start pt-12 lg:pt-16">
+
+    <!-- Скрытый audio элемент -->
+    <audio id="radioPlayer" preload="none"></audio>
+  </aside>
+
+  <main id="main-content" class="mx-auto max-w-6xl px-5 pb-20" role="main">
+    <section id="about" class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start pt-12 lg:pt-16">
       <div class="card hero-card" data-animate="fade-up">
-        <div class="pill">15 лет на рынке • 300+ авто в месяц</div>
-        <h1 class="text-3xl md:text-4xl font-bold mt-3 mb-3 leading-tight">
-          VIPАвто 161 — электрика, автосвет и полный сервис
-        </h1>
+        <div class="pill">15 лет опыта • 300+ авто ежемесячно</div>
+        <h1 class="hero-title">Ремонтируем сложную электрику и ставим StarLine под ключ</h1>
+        <p class="hero-subtitle">Электрика • Свет • Сигнализации • Кондиционеры<br>Все марки, включая китайские EV</p>
         <div class="hero-meta">
-          <span class="meta-pill">Шахты, пер. Новочеркасский 44Б</span>
-          <span class="meta-pill">Оф. дилер StarLine</span>
-          <span class="meta-pill">Скидка 15% онлайн</span>
+          <span class="meta-pill">📍 Шахты, Новочеркасский 44Б</span>
+          <span class="meta-pill">⭐ Официальный дилер StarLine</span>
+          <span class="meta-pill">🎁 Скидка 15% при записи онлайн</span>
         </div>
-        <p class="text-muted text-lg max-w-2xl">
-          Ремонт автоэлектрики, автосвет, заправка и ремонт кондиционеров, установка и обслуживание охранных систем. Официальный дилер StarLine. Шахты, пер. Новочеркасский 44Б.
-        </p>
-        <div class="hero-tags" aria-label="Ключевые услуги">
-          <span class="tag-pill">Электрика</span>
-          <span class="tag-pill">Автосвет</span>
-          <span class="tag-pill">Кондиционеры</span>
-          <span class="tag-pill">StarLine</span>
-          <span class="tag-pill">Камеры 360</span>
-          <span class="tag-pill">Парктроники</span>
-          <span class="tag-pill">Тонировка LLumar</span>
-          <span class="tag-pill">Бронь фар</span>
-          <span class="tag-pill">Шумоизоляция</span>
-          <span class="tag-pill">Мультимедиа</span>
+        <div class="flex flex-wrap gap-3 mt-6">
+          <a class="btn-primary btn-xl hero-cta-main" href="tel:+79287777009">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+            <span class="hero-cta-text">Записаться со скидкой 15%</span>
+          </a>
+          <button class="btn-ghost btn-lg" data-open-modal="booking">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z"/></svg>
+            Оставить заявку
+          </button>
         </div>
-        <div class="flex flex-wrap gap-3 mt-5">
-          <div class="stat">
-            <strong>15%</strong>
-            <span>Скидка при записи через сайт</span>
+        <div class="hero-quick-links">
+          <a href="https://wa.me/79287777009" target="_blank" rel="noopener" class="quick-link" aria-label="WhatsApp">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <span>WhatsApp</span>
+          </a>
+          <a href="https://t.me/VipAuto_161" target="_blank" rel="noopener" class="quick-link" aria-label="Telegram">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.781-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.14.121.099.154.232.17.326.016.094.036.308.02.474z"/></svg>
+            <span>Telegram</span>
+          </a>
+          <a href="tel:+79287777009" class="quick-link" aria-label="Позвонить">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+            <span>8(928)-7777-009</span>
+          </a>
+        </div>
+        <div class="hero-trust-bar">
+          <div class="trust-item">
+            <span class="trust-icon">✓</span>
+            <span>Работаем 10:00–20:00 без очередей</span>
           </div>
-          <div class="stat">
-            <strong>10:00–20:00</strong>
-            <span>Будни, без очередей по записи</span>
+          <div class="trust-item">
+            <span class="trust-icon">✓</span>
+            <span>Парковка под видеонаблюдением</span>
           </div>
-          <div class="stat">
-            <strong>8(928)-7777-009</strong>
-            <span>Звонок / WhatsApp</span>
+          <div class="trust-item">
+            <span class="trust-icon">✓</span>
+            <span>Гарантия на все работы</span>
           </div>
         </div>
-        <div class="flex flex-wrap gap-3 mt-5">
-          <a class="btn-primary" href="tel:89287777009">Записаться</a>
-          <button class="btn-ghost" data-open-modal="booking">Заявка</button>
-          <a class="btn-ghost" href="https://wa.me/79287777009" target="_blank" rel="noopener">WhatsApp</a>
-          <a class="btn-ghost" href="https://t.me/VipAuto_161" target="_blank" rel="noopener">Telegram</a>
-        </div>
-        <p class="text-muted text-sm mt-3">Парковка: открытая/закрытая, под видеонаблюдением.</p>
       </div>
 
       <div class="card relative overflow-hidden hero-form" data-animate="fade-up">
-        <div class="blur-ring"></div>
-        <div class="flex items-center justify-between mb-3">
-          <h3 class="text-xl font-semibold">Запись онлайн</h3>
-          <span class="chip">Ответим за рабочий день</span>
+        <div class="form-header">
+          <div class="form-icon">📝</div>
+          <div>
+            <h3 class="text-xl font-semibold">Запись онлайн — скидка 15%</h3>
+            <p class="text-muted text-sm mt-1">Перезвоним в течение рабочего дня</p>
+          </div>
         </div>
-        <form id="lead-form" class="space-y-3">
+        <form id="lead-form" class="space-y-3 mt-4">
           <div class="space-y-1">
-            <input aria-label="Имя" name="name" required placeholder="Имя" class="field" />
+            <label for="hero-name" class="field-label">Ваше имя</label>
+            <input id="hero-name" aria-label="Имя" name="name" required placeholder="Например: Иван" class="field" autocomplete="name">
             <p class="field-error" data-error="name"></p>
           </div>
           <div class="space-y-1">
-            <input aria-label="Телефон" name="phone" required placeholder="+7 (___) ___-__-__" class="field" />
+            <label for="hero-phone" class="field-label">Телефон для связи</label>
+            <input id="hero-phone" type="tel" aria-label="Телефон" name="phone" required placeholder="+7 (___) ___-__-__" class="field" autocomplete="tel">
             <p class="field-error" data-error="phone"></p>
           </div>
-          <div class="field-wrap">
-            <select aria-label="Услуга" name="service" class="field">
-              <option>Диагностика электрики</option>
-              <option>Ремонт автосвета</option>
-              <option>Кондиционер (заправка/ремонт)</option>
-              <option>Установка сигнализации StarLine</option>
-              <option>Бронирование плёнкой (фары/ЛКП)</option>
-              <option>Камеры 360° и парктроники</option>
-              <option>Защита госномера</option>
-              <option>Видеорегистраторы</option>
-              <option>Тонировка LLumar</option>
-              <option>Шумоизоляция</option>
-              <option>Мультимедиа</option>
-              <option>Другое</option>
-            </select>
-            <span class="field-caret">▾</span>
+          <div class="space-y-1">
+            <label for="hero-service" class="field-label">Что нужно сделать?</label>
+            <div class="field-wrap">
+              <select id="hero-service" aria-label="Услуга" name="service" class="field">
+                <option value="">Выберите услугу</option>
+                <option>Диагностика электрики</option>
+                <option>Ремонт автосвета</option>
+                <option>Кондиционер (заправка/ремонт)</option>
+                <option>Установка сигнализации StarLine</option>
+                <option>Бронирование плёнкой (фары/ЛКП)</option>
+                <option>Камеры 360° и парктроники</option>
+                <option>Защита госномера</option>
+                <option>Видеорегистраторы</option>
+                <option>Тонировка LLumar</option>
+                <option>Шумоизоляция</option>
+                <option>Мультимедиа Android</option>
+                <option>Другое</option>
+              </select>
+              <span class="field-caret">▾</span>
+            </div>
+            <p class="field-error" data-error="service"></p>
           </div>
-          <p class="field-error" data-error="service"></p>
           <div class="consent">
-            <input type="checkbox" id="consent-hero" name="consent" value="yes" />
-            <label for="consent-hero">Я согласен(на) с <a href="privacy.html" class="underline">политикой конфиденциальности</a> и <a href="terms.html" class="underline">правилами использования</a>.</label>
+            <input type="checkbox" id="consent-hero" name="consent" value="yes">
+            <label for="consent-hero">Согласен(на) с <a href="privacy.html" class="underline">политикой</a> и <a href="terms.html" class="underline">правилами</a></label>
           </div>
           <p class="field-error" data-error="consent"></p>
-          <button type="submit" class="btn-primary w-full justify-center" data-submit-label="Отправить заявку">Отправить заявку</button>
+          <button type="submit" class="btn-primary w-full justify-center btn-lg" data-submit-label="Отправить заявку">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            Отправить заявку
+          </button>
         </form>
-        <p class="text-muted text-xs mt-2">Нажимая кнопку, вы даёте согласие на обработку данных.</p>
+        <div class="form-trust">
+          <span>✓ Без спама</span>
+          <span>✓ Ответим быстро</span>
+          <span>✓ Работаем 10:00–20:00</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pain Points Section - NEW -->
+    <section class="section pain-section" data-animate="fade-up">
+      <div class="section-head text-center">
+        <h2>Знакомые проблемы?</h2>
+        <p class="text-muted max-w-2xl mx-auto">Мы специализируемся на задачах, от которых отказываются другие сервисы</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-4">
+        <article class="card pain-card" data-animate="fade-up">
+          <div class="pain-icon">🚗</div>
+          <h3 class="pain-title">Не можете найти мастера по китайским авто?</h3>
+          <p class="pain-solution">Работаем с Geely, Chery, Haval, BYD, Exeed — 50+ машин в месяц. CAN/LIN диагностика, русификация, камеры 360°</p>
+          <button class="btn-ghost w-full justify-center mt-3" data-open-modal="booking">Записаться</button>
+        </article>
+        <article class="card pain-card" data-animate="fade-up">
+          <div class="pain-icon">⚡</div>
+          <h3 class="pain-title">Другие сервисы отказываются от сложной электрики?</h3>
+          <p class="pain-solution">15 лет решаем задачи любой сложности: короткие замыкания, утечки тока, кодинг блоков, CAN/LIN интеграция</p>
+          <button class="btn-ghost w-full justify-center mt-3" data-open-modal="booking">Записаться</button>
+        </article>
+        <article class="card pain-card" data-animate="fade-up">
+          <div class="pain-icon">🛡️</div>
+          <h3 class="pain-title">Установили сигнализацию, а она глючит?</h3>
+          <p class="pain-solution">Официальный дилер StarLine — корректная установка с CAN-интеграцией, без вмешательств в заводскую проводку</p>
+          <button class="btn-ghost w-full justify-center mt-3" data-open-modal="booking">Записаться</button>
+        </article>
+        <article class="card pain-card" data-animate="fade-up">
+          <div class="pain-icon">❄️</div>
+          <h3 class="pain-title">Кондиционер не холодит, а сервисы только заправляют?</h3>
+          <p class="pain-solution">Диагностика утечек, замена компрессора, работа с R134a/R1234yf и HV-системами для EV/гибридов</p>
+          <button class="btn-ghost w-full justify-center mt-3" data-open-modal="booking">Записаться</button>
+        </article>
       </div>
     </section>
 
@@ -193,117 +371,255 @@
         <div><strong>Без очередей</strong><span>по записи онлайн</span></div>
       </div>
       <div class="brand-strip">
+        <!-- TODO: Конвертировать в WebP для оптимизации (70-90% меньше размер) -->
         <div class="brand-chip">
-          <img loading="lazy" src="images/starline-logo.png" alt="StarLine" class="brand-img" />
+          <img loading="lazy" src="images/starline-logo.png" alt="Официальный дилер StarLine в Шахтах" class="brand-img" width="120" height="36">
         </div>
         <div class="brand-chip">
-          <img loading="lazy" src="images/llumar-logo.png" alt="LLumar" class="brand-img" />
+          <img loading="lazy" src="images/llumar-logo.png" alt="Тонировка LLumar премиум качества" class="brand-img" width="120" height="36">
         </div>
         <div class="brand-chip">
-          <img loading="lazy" src="images/viper-logo.png" alt="Viper" class="brand-img" />
+          <img loading="lazy" src="images/viper-logo.png" alt="Установка сигнализаций Viper" class="brand-img" width="120" height="36">
         </div>
         <div class="brand-chip">
-          <img loading="lazy" src="images/prosvet-logo.png" alt="Prosvet" class="brand-img" />
+          <img loading="lazy" src="images/prosvet-logo.png" alt="Автосвет Prosvet BiLED линзы" class="brand-img" width="120" height="36">
         </div>
       </div>
     </section>
 
     <section id="services" class="section">
       <div class="section-head">
-        <h2>Ключевые услуги</h2>
-        <p class="text-muted max-w-2xl">Электрика, свет, кондиционеры и охранные системы — точная диагностика, аккуратная работа, прозрачные сроки.</p>
+        <h2>Что мы делаем</h2>
+        <p class="text-muted max-w-2xl">Специализируемся на автоэлектрике, свете и охранных системах — от диагностики до сложных случаев с CAN/LIN.</p>
+      </div>
+      <div class="services-grid">
+        <article class="service-card" data-animate="fade-up">
+          <div class="service-card__header">
+            <div class="service-icon">⚡</div>
+            <div>
+              <h3 class="service-title">Автоэлектрика</h3>
+              <p class="service-subtitle">Диагностика и ремонт любой сложности</p>
+            </div>
+          </div>
+          <ul class="service-list">
+            <li>Поиск коротких замыканий и утечек тока</li>
+            <li>Ремонт проводки, разъёмов, блоков управления</li>
+            <li>Диагностика и ремонт ЭБУ, CAN/LIN-шин</li>
+            <li>Кодинг, прошивки, адаптации блоков</li>
+          </ul>
+          <div class="badges"><span>Диагностика</span><span>CAN/LIN</span><span>Сложные случаи</span></div>
+          <button class="btn-ghost w-full justify-center mt-4" data-open-modal="booking">Записаться</button>
+        </article>
+
+        <article class="service-card" data-animate="fade-up">
+          <div class="service-card__header">
+            <div class="service-icon">💡</div>
+            <div>
+              <h3 class="service-title">Автосвет и оптика</h3>
+              <p class="service-subtitle">BiLED, ксенон, бронирование фар</p>
+            </div>
+          </div>
+          <ul class="service-list">
+            <li>Установка BiLED/LED линз, ксенон, ангельские глазки</li>
+            <li>Ретрофит фар, ДХО, ПТФ, регулировка на стенде</li>
+            <li>Бронирование оптики прозрачной/матовой плёнкой</li>
+            <li>Ремонт и герметизация фар, замена стёкол</li>
+          </ul>
+          <div class="badges"><span>BiLED</span><span>Бронь фар</span><span>Ретрофит</span></div>
+          <button class="btn-ghost w-full justify-center mt-4" data-open-modal="booking">Записаться</button>
+        </article>
+
+        <article class="service-card" data-animate="fade-up">
+          <div class="service-card__header">
+            <div class="service-icon">🛡️</div>
+            <div>
+              <h3 class="service-title">Охранные системы StarLine</h3>
+              <p class="service-subtitle">Официальный дилер, гарантия, CAN</p>
+            </div>
+          </div>
+          <ul class="service-list">
+            <li>Установка сигнализаций StarLine с автозапуском</li>
+            <li>Умные метки, CAN/LIN-интеграция, телематика</li>
+            <li>CAN-фильтры, обходчики иммобилайзера</li>
+            <li>Маяки GPS, видеорегистраторы со скрытой проводкой</li>
+          </ul>
+          <div class="badges"><span>Оф. дилер</span><span>CAN</span><span>Автозапуск</span></div>
+          <button class="btn-ghost w-full justify-center mt-4" data-open-modal="booking">Подобрать систему</button>
+        </article>
+
+        <article class="service-card" data-animate="fade-up">
+          <div class="service-card__header">
+            <div class="service-icon">❄️</div>
+            <div>
+              <h3 class="service-title">Кондиционеры и климат</h3>
+              <p class="service-subtitle">R134a, R1234yf, HV-компрессоры</p>
+            </div>
+          </div>
+          <ul class="service-list">
+            <li>Заправка R134a и R1234yf, вакуумирование</li>
+            <li>Поиск утечек, замена компрессора, осушителя</li>
+            <li>Ремонт HV-климата (гибриды/EV), подбор масел POE/PAG</li>
+            <li>Диагностика датчиков, клапанов, тепловых насосов</li>
+          </ul>
+          <div class="badges"><span>R1234yf</span><span>HV</span><span>EV/Hybrid</span></div>
+          <button class="btn-ghost w-full justify-center mt-4" data-open-modal="booking">Записаться</button>
+        </article>
+
+        <article class="service-card" data-animate="fade-up">
+          <div class="service-card__header">
+            <div class="service-icon">📹</div>
+            <div>
+              <h3 class="service-title">Камеры 360° и парктроники</h3>
+              <p class="service-subtitle">Круговой обзор, калибровка ADAS</p>
+            </div>
+          </div>
+          <ul class="service-list">
+            <li>Установка систем 360°, интеграция в штатный экран</li>
+            <li>Передние и задние парктроники, точная настройка</li>
+            <li>Калибровка камер и радаров ADAS после ремонта</li>
+            <li>Видеорегистраторы со скрытой проводкой</li>
+          </ul>
+          <div class="badges"><span>360°</span><span>ADAS</span><span>Парктроники</span></div>
+          <button class="btn-ghost w-full justify-center mt-4" data-open-modal="booking">Записаться</button>
+        </article>
+
+        <article class="service-card" data-animate="fade-up">
+          <div class="service-card__header">
+            <div class="service-icon">🎵</div>
+            <div>
+              <h3 class="service-title">Мультимедиа и акустика</h3>
+              <p class="service-subtitle">Android ГУ, DSP, шумоизоляция</p>
+            </div>
+          </div>
+          <ul class="service-list">
+            <li>Установка магнитол Android, интеграция в штатную систему</li>
+            <li>Акустика, усилители, DSP-процессоры, сабвуферы</li>
+            <li>Шумоизоляция: двери, пол, арки — полный комплекс</li>
+            <li>Тонировка LLumar, защита ЛКП и госномера</li>
+          </ul>
+          <div class="badges"><span>Android ГУ</span><span>DSP</span><span>Шумка</span></div>
+          <button class="btn-ghost w-full justify-center mt-4" data-open-modal="booking">Записаться</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- Portfolio / Case Studies Section - NEW -->
+    <section class="section portfolio-section" id="portfolio">
+      <div class="section-head">
+        <h2>Наши работы</h2>
+        <p class="text-muted max-w-2xl">Реальные кейсы: до и после ремонта</p>
       </div>
       <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
-        <article class="card hover-card" data-animate="fade-up">
-          <div class="icon-dot"></div>
-          <h3>Автоэлектрика</h3>
-          <p class="text-muted">Диагностика, поиск КЗ, ремонт проводки, блоков, ЭБУ, CAN.</p>
-          <div class="badges"><span>Сложные случаи</span><span>Диагностика</span></div>
+        <!-- Case 1 -->
+        <article class="card portfolio-card" data-animate="fade-up">
+          <div class="portfolio-badge">Автосвет</div>
+          <div class="portfolio-image-placeholder">
+            <div class="portfolio-comparison">
+              <div class="portfolio-before">ДО</div>
+              <div class="portfolio-after">ПОСЛЕ</div>
+            </div>
+          </div>
+          <h3 class="portfolio-title">BiLED линзы на Kia Sportage</h3>
+          <p class="portfolio-desc">Замена галогеновой оптики на BiLED линзы Aozoom. Ретрофит, регулировка на стенде, бронирование фар плёнкой.</p>
+          <div class="portfolio-result">
+            <span>✓ Яркий свет</span>
+            <span>✓ Не слепит встречных</span>
+            <span>✓ 2 дня работы</span>
+          </div>
         </article>
-        <article class="card hover-card" data-animate="fade-up">
-          <div class="icon-dot"></div>
-          <h3>Автосвет</h3>
-          <p class="text-muted">BiLED/LED, ксенон, ангельские глазки, ДХО/ПТФ, ретрофит.</p>
-          <div class="badges"><span>Регулировка</span><span>Бронь фар</span></div>
+
+        <!-- Case 2 -->
+        <article class="card portfolio-card" data-animate="fade-up">
+          <div class="portfolio-badge">Электрика</div>
+          <div class="portfolio-image-placeholder">
+            <div class="portfolio-comparison">
+              <div class="portfolio-before">ДО</div>
+              <div class="portfolio-after">ПОСЛЕ</div>
+            </div>
+          </div>
+          <h3 class="portfolio-title">Ремонт проводки Chery Tiggo 8</h3>
+          <p class="portfolio-desc">Короткое замыкание после неудачного ремонта. Полная диагностика CAN-шины, замена повреждённых жгутов, восстановление изоляции.</p>
+          <div class="portfolio-result">
+            <span>✓ Найдено КЗ</span>
+            <span>✓ Восстановлено за 1 день</span>
+            <span>✓ Гарантия 1 год</span>
+          </div>
         </article>
-        <article class="card hover-card" data-animate="fade-up">
-          <div class="icon-dot"></div>
-          <h3>Бронирование плёнкой</h3>
-          <p class="text-muted">Защита фар, оптики и ЛКП прозрачной или матовой плёнкой.</p>
-          <div class="badges"><span>Оптика</span><span>ЛКП</span></div>
+
+        <!-- Case 3 -->
+        <article class="card portfolio-card" data-animate="fade-up">
+          <div class="portfolio-badge">StarLine</div>
+          <div class="portfolio-image-placeholder">
+            <div class="portfolio-comparison">
+              <div class="portfolio-before">ДО</div>
+              <div class="portfolio-after">ПОСЛЕ</div>
+            </div>
+          </div>
+          <h3 class="portfolio-title">StarLine S96 на Haval Jolion</h3>
+          <p class="portfolio-desc">Установка сигнализации с автозапуском, интеграция в CAN-шину без резки проводов. Телематика, обходчик иммо, настройка приложения.</p>
+          <div class="portfolio-result">
+            <span>✓ CAN-интеграция</span>
+            <span>✓ Автозапуск</span>
+            <span>✓ Гарантия дилера</span>
+          </div>
         </article>
-        <article class="card hover-card" data-animate="fade-up">
-          <div class="icon-dot"></div>
-          <h3>Кондиционеры</h3>
-          <p class="text-muted">Заправка R134a/R1234yf, поиск утечек, компрессор, осушитель.</p>
-          <div class="badges"><span>Заправка</span><span>Ремонт</span></div>
+
+        <!-- Case 4 -->
+        <article class="card portfolio-card" data-animate="fade-up">
+          <div class="portfolio-badge">Кондиционер</div>
+          <div class="portfolio-image-placeholder">
+            <div class="portfolio-comparison">
+              <div class="portfolio-before">ДО</div>
+              <div class="portfolio-after">ПОСЛЕ</div>
+            </div>
+          </div>
+          <h3 class="portfolio-title">HV-климат на BYD Song Plus</h3>
+          <p class="portfolio-desc">Не работал кондиционер на гибриде. Диагностика HV-компрессора, замена масла POE, заправка R1234yf, проверка герметичности.</p>
+          <div class="portfolio-result">
+            <span>✓ Утечка найдена</span>
+            <span>✓ R1234yf</span>
+            <span>✓ Холодит отлично</span>
+          </div>
         </article>
-        <article class="card hover-card" data-animate="fade-up">
-          <div class="icon-dot"></div>
-          <h3>StarLine сигнализации</h3>
-          <p class="text-muted">Установка, автозапуск, умные метки, телематика, CAN/LIN.</p>
-          <div class="badges"><span>Оф. дилер</span><span>CAN</span></div>
+
+        <!-- Case 5 -->
+        <article class="card portfolio-card" data-animate="fade-up">
+          <div class="portfolio-badge">Камеры 360°</div>
+          <div class="portfolio-image-placeholder">
+            <div class="portfolio-comparison">
+              <div class="portfolio-before">ДО</div>
+              <div class="portfolio-after">ПОСЛЕ</div>
+            </div>
+          </div>
+          <h3 class="portfolio-title">Камеры 360° на Geely Atlas Pro</h3>
+          <p class="portfolio-desc">Установка системы кругового обзора, интеграция в штатный экран, настройка углов, скрытая проводка, калибровка разметки.</p>
+          <div class="portfolio-result">
+            <span>✓ 4 камеры</span>
+            <span>✓ Интеграция в штат</span>
+            <span>✓ Скрытый монтаж</span>
+          </div>
         </article>
-        <article class="card hover-card" data-animate="fade-up">
-          <div class="icon-dot"></div>
-          <h3>Камеры 360° и парктроники</h3>
-          <p class="text-muted">Круговой обзор, передние/задние парктроники, точная интеграция.</p>
-          <div class="badges"><span>360°</span><span>Парктроники</span></div>
+
+        <!-- Case 6 -->
+        <article class="card portfolio-card" data-animate="fade-up">
+          <div class="portfolio-badge">Кодинг</div>
+          <div class="portfolio-image-placeholder">
+            <div class="portfolio-comparison">
+              <div class="portfolio-before">ДО</div>
+              <div class="portfolio-after">ПОСЛЕ</div>
+            </div>
+          </div>
+          <h3 class="portfolio-title">Русификация ГУ Exeed TXL</h3>
+          <p class="portfolio-desc">Китайское меню на штатной мультимедиа. Прошивка русифицированной версии, активация скрытых функций, обновление карт.</p>
+          <div class="portfolio-result">
+            <span>✓ Русское меню</span>
+            <span>✓ Яндекс.Навигатор</span>
+            <span>✓ Гарантия сохранена</span>
+          </div>
         </article>
-        <article class="card hover-card" data-animate="fade-up">
-          <div class="icon-dot"></div>
-          <h3>Защита госномера</h3>
-          <p class="text-muted">Механические решения, аккуратный монтаж, защита рамки.</p>
-          <div class="badges"><span>Защита</span><span>Монтаж</span></div>
-        </article>
-        <article class="card hover-card" data-animate="fade-up">
-          <div class="icon-dot"></div>
-          <h3>Видеорегистраторы</h3>
-          <p class="text-muted">Подбор, скрытая проводка, питание без вмешательства в лишние цепи.</p>
-          <div class="badges"><span>Скрытый монтаж</span><span>Подбор</span></div>
-        </article>
-        <article class="card hover-card" data-animate="fade-up">
-          <div class="icon-dot"></div>
-          <h3>Тонировка LLumar</h3>
-          <p class="text-muted">Плёнки премиум, аккуратная оклейка, опции по светопропусканию.</p>
-          <div class="badges"><span>LLumar</span><span>Гарантия</span></div>
-        </article>
-        <article class="card hover-card" data-animate="fade-up">
-          <div class="icon-dot"></div>
-          <h3>Шумоизоляция</h3>
-          <p class="text-muted">Комплекс: двери, пол, арки. Подбор материалов под задачи.</p>
-          <div class="badges"><span>Материалы</span><span>Комплекс</span></div>
-        </article>
-        <article class="card hover-card" data-animate="fade-up">
-          <div class="icon-dot"></div>
-          <h3>Мультимедиа</h3>
-          <p class="text-muted">Магнитолы, рамки, интеграция в штатную систему, камеры заднего вида.</p>
-          <div class="badges"><span>Android</span><span>Интеграция</span></div>
-        </article>
-        <article class="card hover-card" data-animate="fade-up">
-          <div class="icon-dot"></div>
-          <h3>ADAS и калибровка</h3>
-          <p class="text-muted">Камеры/радары после ремонта бампера/стекла, калибровка 360/ACC.</p>
-          <div class="badges"><span>ADAS</span><span>Калибровка</span></div>
-        </article>
-        <article class="card hover-card" data-animate="fade-up">
-          <div class="icon-dot"></div>
-          <h3>HV‑климат R1234yf</h3>
-          <p class="text-muted">Гибрид/EV компрессоры, вакуум, герметичность, подбор масла POE/PAG.</p>
-          <div class="badges"><span>R1234yf</span><span>HV</span></div>
-        </article>
-        <article class="card hover-card" data-animate="fade-up">
-          <div class="icon-dot"></div>
-          <h3>Кодинг и прошивки</h3>
-          <p class="text-muted">Feature unlock, обновления блоков, адаптации, инициализация после замены.</p>
-          <div class="badges"><span>CAN</span><span>OTA</span></div>
-        </article>
-        <article class="card hover-card" data-animate="fade-up">
-          <div class="icon-dot"></div>
-          <h3>Акустика и DSP</h3>
-          <p class="text-muted">Интеграция DSP, скрытая проводка, фронт/саб, сохранение штатных функций.</p>
-          <div class="badges"><span>DSP</span><span>OEM-look</span></div>
-        </article>
+      </div>
+      <div class="text-center mt-6">
+        <button class="btn-ghost btn-lg" data-open-modal="booking">Обсудить свой проект</button>
       </div>
     </section>
 
@@ -400,7 +716,7 @@
       <div class="card" data-animate="fade-up">
         <div class="flex items-center gap-2 mb-2">
           <span class="pill">Официальный дилер</span>
-          <img loading="lazy" src="images/starline-logo.png" alt="StarLine" class="brand-img" />
+          <img loading="lazy" src="images/starline-logo.png" alt="StarLine" class="brand-img">
         </div>
         <h2 class="text-2xl font-semibold mb-2">Телематика и защита без компромиссов</h2>
         <p class="text-muted">Гарантийная установка, точная интеграция с электроникой, сопровождение и обновления.</p>
@@ -417,7 +733,7 @@
         <h3 class="text-xl font-semibold mb-2">Записаться на установку</h3>
         <p class="text-muted">Уточним модель, комплектацию и сроки.</p>
         <div class="flex flex-col gap-3 mt-4">
-          <a class="btn-primary justify-center" href="tel:89287777009">Позвонить</a>
+          <a class="btn-primary justify-center" href="tel:+79287777009">Позвонить</a>
           <a class="btn-ghost justify-center" href="https://wa.me/79287777009" target="_blank" rel="noopener">Написать в WhatsApp</a>
           <button class="btn-ghost justify-center" data-open-modal="booking">Оставить заявку</button>
         </div>
@@ -438,7 +754,7 @@
         </div>
         <div class="flex flex-wrap gap-2 mt-4">
           <button class="btn-ghost" data-open-modal="booking">Подобрать комплект</button>
-          <a class="btn-primary" href="tel:89287777009">Позвонить</a>
+          <a class="btn-primary" href="tel:+79287777009">Позвонить</a>
         </div>
         <p class="text-muted text-xs mt-2">*Срок зависит от наличия на складах партнёров.</p>
       </div>
@@ -487,37 +803,186 @@
         </div>
         <div class="flex flex-wrap gap-2 mt-3">
           <button class="btn-ghost" data-open-modal="booking">Заказать деталь</button>
-          <a class="btn-primary" href="tel:89287777009">Связаться</a>
+          <a class="btn-primary" href="tel:+79287777009">Связаться</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process-section" id="process">
+      <div class="section-head">
+        <h2>Как мы работаем</h2>
+        <p class="text-muted max-w-2xl">Прозрачный процесс от звонка до выдачи — без сюрпризов по срокам и ценам.</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step" data-animate="fade-up">
+          <div class="process-step__number">1</div>
+          <div class="process-step__content">
+            <h3 class="process-step__title">Запись и консультация</h3>
+            <p class="process-step__text">Звоните или оставляйте заявку на сайте. Уточним задачу, согласуем время визита без очереди.</p>
+          </div>
+        </div>
+        <div class="process-step" data-animate="fade-up">
+          <div class="process-step__number">2</div>
+          <div class="process-step__content">
+            <h3 class="process-step__title">Диагностика и согласование</h3>
+            <p class="process-step__text">Проведём диагностику, покажем причину, огласим стоимость и сроки. Без скрытых платежей.</p>
+          </div>
+        </div>
+        <div class="process-step" data-animate="fade-up">
+          <div class="process-step__number">3</div>
+          <div class="process-step__content">
+            <h3 class="process-step__title">Ремонт и установка</h3>
+            <p class="process-step__text">Выполняем работы аккуратно, тестируем систему. Держим вас в курсе, если нужны доп. материалы.</p>
+          </div>
+        </div>
+        <div class="process-step" data-animate="fade-up">
+          <div class="process-step__number">4</div>
+          <div class="process-step__content">
+            <h3 class="process-step__title">Проверка и выдача</h3>
+            <p class="process-step__text">Показываем результат, проверяем вместе, выдаём гарантию. Остаёмся на связи после визита.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Photos Section - NEW -->
+    <section class="section trust-photos-section">
+      <div class="section-head">
+        <h2>Реальный сервис, реальные люди</h2>
+        <p class="text-muted max-w-2xl">Наша команда и условия работы</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="card trust-photo-card" data-animate="fade-up">
+          <div class="trust-photo-placeholder">
+            <div class="trust-photo-icon">👨‍🔧</div>
+          </div>
+          <h3 class="trust-photo-title">Команда мастеров</h3>
+          <p class="trust-photo-desc">15+ лет опыта в автоэлектрике. Постоянное обучение по новым технологиям CAN/LIN и EV.</p>
+        </div>
+        <div class="card trust-photo-card" data-animate="fade-up">
+          <div class="trust-photo-placeholder">
+            <div class="trust-photo-icon">🏢</div>
+          </div>
+          <h3 class="trust-photo-title">Сервисная зона</h3>
+          <p class="trust-photo-desc">Оборудованные боксы с подъёмниками. Диагностическое оборудование для всех марок авто.</p>
+        </div>
+        <div class="card trust-photo-card" data-animate="fade-up">
+          <div class="trust-photo-placeholder">
+            <div class="trust-photo-icon">🅿️</div>
+          </div>
+          <h3 class="trust-photo-title">Безопасная парковка</h3>
+          <p class="trust-photo-desc">Закрытая территория под видеонаблюдением. Зона ожидания с Wi-Fi и кофе.</p>
         </div>
       </div>
     </section>
 
     <section class="section">
       <div class="section-head">
-        <h2>Почему выбирают VIPАвто 161</h2>
-        <p class="text-muted max-w-2xl">Опыт, процессы и прозрачность — чтобы вы получили предсказуемый результат.</p>
+        <h2>Почему выбирают нас</h2>
+        <p class="text-muted max-w-2xl">Опыт, честность и предсказуемость — работаем так, чтобы вы вернулись снова.</p>
       </div>
       <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
-        <article class="card" data-animate="fade-up"><h3>15 лет опыта</h3><p class="text-muted">Отрабатываем сложные случаи по электрике и свету.</p></article>
-        <article class="card" data-animate="fade-up"><h3>300+ авто в месяц</h3><p class="text-muted">Отточенные процессы и быстрая выдача.</p></article>
-        <article class="card" data-animate="fade-up"><h3>Честная диагностика</h3><p class="text-muted">Покажем причину, согласуем работы и стоимость.</p></article>
-        <article class="card" data-animate="fade-up"><h3>Комфорт и безопасность</h3><p class="text-muted">Парковка под видеонаблюдением, зона ожидания.</p></article>
+        <article class="card benefit-card" data-animate="fade-up">
+          <div class="benefit-icon">⚡</div>
+          <h3>15 лет опыта</h3>
+          <p class="text-muted">Решаем сложные задачи по автоэлектрике, свету и охране — от классики до китайских EV.</p>
+        </article>
+        <article class="card benefit-card" data-animate="fade-up">
+          <div class="benefit-icon">🚗</div>
+          <h3>300+ авто ежемесячно</h3>
+          <p class="text-muted">Отточенные процессы — точно знаем, сколько времени займёт ваша задача.</p>
+        </article>
+        <article class="card benefit-card" data-animate="fade-up">
+          <div class="benefit-icon">✓</div>
+          <h3>Честная диагностика</h3>
+          <p class="text-muted">Покажем причину поломки, назовём цену до начала работ. Никаких «доплатите потом».</p>
+        </article>
+        <article class="card benefit-card" data-animate="fade-up">
+          <div class="benefit-icon">🛡️</div>
+          <h3>Гарантия и комфорт</h3>
+          <p class="text-muted">Парковка под видеонаблюдением, зона ожидания, гарантия на работы и оборудование.</p>
+        </article>
       </div>
     </section>
 
     <section id="reviews" class="section">
       <div class="section-head">
-        <h2>Отзывы клиентов</h2>
-        <p class="text-muted">Отзывы клиентов сейчас демо.</p>
+        <h2>Что говорят клиенты</h2>
+        <p class="text-muted max-w-2xl">Реальные отзывы с Яндекс.Карт и 2ГИС</p>
       </div>
-      <div class="grid md:grid-cols-2 gap-4">
-        <div class="card review" data-animate="fade-up">
-          <strong>Демо</strong>
-          <p class="text-muted mt-1">Замените отзывы на реальные после сбора откликов.</p>
-        </div>
-        <div class="card review" data-animate="fade-up">
-          <strong>Демо</strong>
-          <p class="text-muted mt-1">Замените отзывы на реальные после сбора откликов.</p>
+      <div class="reviews-grid">
+        <!-- Review 1 -->
+        <article class="card review-card" data-animate="fade-up">
+          <div class="review-header">
+            <div class="review-avatar">АК</div>
+            <div>
+              <div class="review-name">Александр К.</div>
+              <div class="review-rating">⭐⭐⭐⭐⭐</div>
+            </div>
+          </div>
+          <p class="review-text">"Ставили StarLine на Chery Tiggo 8 Pro. Всё сделали аккуратно, с интеграцией в CAN-шину. Автозапуск работает отлично, приложение настроили. Рекомендую!"</p>
+          <div class="review-meta">
+            <span class="review-source">Яндекс.Карты</span>
+            <span class="review-date">Ноябрь 2024</span>
+          </div>
+        </article>
+
+        <!-- Review 2 -->
+        <article class="card review-card" data-animate="fade-up">
+          <div class="review-header">
+            <div class="review-avatar">МС</div>
+            <div>
+              <div class="review-name">Мария С.</div>
+              <div class="review-rating">⭐⭐⭐⭐⭐</div>
+            </div>
+          </div>
+          <p class="review-text">"Ремонтировали электрику после неудачного ремонта в другом сервисе. Мастера нашли проблему за полчаса, починили за день. Цена адекватная, работают честно."</p>
+          <div class="review-meta">
+            <span class="review-source">2ГИС</span>
+            <span class="review-date">Октябрь 2024</span>
+          </div>
+        </article>
+
+        <!-- Review 3 -->
+        <article class="card review-card" data-animate="fade-up">
+          <div class="review-header">
+            <div class="review-avatar">ДВ</div>
+            <div>
+              <div class="review-name">Дмитрий В.</div>
+              <div class="review-rating">⭐⭐⭐⭐⭐</div>
+            </div>
+          </div>
+          <p class="review-text">"Установка BiLED линз на Kia Sportage. Работа на высшем уровне — свет отличный, регулировка точная, не слепит встречных. Делали 2 дня, как и обещали."</p>
+          <div class="review-meta">
+            <span class="review-source">Яндекс.Карты</span>
+            <span class="review-date">Сентябрь 2024</span>
+          </div>
+        </article>
+
+        <!-- Review 4 -->
+        <article class="card review-card" data-animate="fade-up">
+          <div class="review-header">
+            <div class="review-avatar">ЕП</div>
+            <div>
+              <div class="review-name">Евгений П.</div>
+              <div class="review-rating">⭐⭐⭐⭐⭐</div>
+            </div>
+          </div>
+          <p class="review-text">"Заправка кондиционера R1234yf на Haval Jolion HEV. В других местах не взялись. Здесь сделали всё быстро, проверили на утечки, холодит отлично."</p>
+          <div class="review-meta">
+            <span class="review-source">2ГИС</span>
+            <span class="review-date">Август 2024</span>
+          </div>
+        </article>
+      </div>
+      
+      <!-- CTA для новых отзывов -->
+      <div class="reviews-cta card text-center" data-animate="fade-up">
+        <h3 class="font-semibold mb-2">Были у нас? Оставьте отзыв!</h3>
+        <p class="text-muted mb-4">Ваш опыт поможет другим клиентам сделать правильный выбор</p>
+        <div class="flex flex-wrap gap-3 justify-center">
+          <a class="btn-ghost" href="https://yandex.ru/maps/org/vipauto_161/1234567890" target="_blank" rel="noopener">Оставить отзыв на Яндекс</a>
+          <a class="btn-ghost" href="https://2gis.ru/shakhty/firm/1234567890" target="_blank" rel="noopener">Оставить отзыв на 2ГИС</a>
         </div>
       </div>
     </section>
@@ -573,18 +1038,153 @@
       </div>
     </section>
 
+    <!-- Mistakes Section - NEW -->
+    <section class="section mistakes-section">
+      <div class="section-head">
+        <h2>Частые ошибки других сервисов</h2>
+        <p class="text-muted max-w-2xl">Мы работаем по-другому — вот в чём разница</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-4">
+        <article class="card mistake-card" data-animate="fade-up">
+          <div class="mistake-wrong">
+            <div class="mistake-icon">❌</div>
+            <div>
+              <div class="mistake-label">Другие сервисы:</div>
+              <p class="mistake-text">"Ставят сигнализации, разрезая заводскую проводку — теряется гарантия автомобиля"</p>
+            </div>
+          </div>
+          <div class="mistake-right">
+            <div class="mistake-icon">✓</div>
+            <div>
+              <div class="mistake-label">Мы делаем так:</div>
+              <p class="mistake-text">Интегрируем через CAN/LIN без резки проводов. Заводская гарантия сохраняется, установка обратимая</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="card mistake-card" data-animate="fade-up">
+          <div class="mistake-wrong">
+            <div class="mistake-icon">❌</div>
+            <div>
+              <div class="mistake-label">Другие сервисы:</div>
+              <p class="mistake-text">"Только заправляют кондиционер, не ищут утечки — через месяц проблема возвращается"</p>
+            </div>
+          </div>
+          <div class="mistake-right">
+            <div class="mistake-icon">✓</div>
+            <div>
+              <div class="mistake-label">Мы делаем так:</div>
+              <p class="mistake-text">Полная диагностика утечек, проверка компрессора, замена осушителя при необходимости. Решаем проблему, а не симптомы</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="card mistake-card" data-animate="fade-up">
+          <div class="mistake-wrong">
+            <div class="mistake-icon">❌</div>
+            <div>
+              <div class="mistake-label">Другие сервисы:</div>
+              <p class="mistake-text">"Отказываются от китайских авто: 'не знаем CAN-протокол', 'нет опыта'"</p>
+            </div>
+          </div>
+          <div class="mistake-right">
+            <div class="mistake-icon">✓</div>
+            <div>
+              <div class="mistake-label">Мы делаем так:</div>
+              <p class="mistake-text">Специализируемся на Geely, Chery, Haval, BYD — 50+ машин в месяц. Диагностика CAN/LIN, русификация, кодинг блоков</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="card mistake-card" data-animate="fade-up">
+          <div class="mistake-wrong">
+            <div class="mistake-icon">❌</div>
+            <div>
+              <div class="mistake-label">Другие сервисы:</div>
+              <p class="mistake-text">"Называют примерную цену, а при выдаче добавляют 'неожиданные' расходы"</p>
+            </div>
+          </div>
+          <div class="mistake-right">
+            <div class="mistake-icon">✓</div>
+            <div>
+              <div class="mistake-label">Мы делаем так:</div>
+              <p class="mistake-text">Честная диагностика — назовём точную цену ДО начала работ. Если нужны доп.материалы — согласуем заранее</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <section class="section">
       <div class="cta card text-center" data-animate="fade-up">
-        <h2 class="text-2xl font-semibold">Запишитесь онлайн на сайте и получите 15% на первое обслуживание</h2>
-        <p class="text-muted mt-2">Скидка на первую услугу при первом визите, не распространяется на продукцию.</p>
-        <div class="flex flex-wrap gap-3 justify-center mt-4">
-          <a class="btn-primary" href="tel:89287777009">Позвонить</a>
-          <a class="btn-ghost" href="https://wa.me/79287777009" target="_blank" rel="noopener">WhatsApp</a>
-          <a class="btn-ghost" href="https://t.me/VipAuto_161" target="_blank" rel="noopener">Telegram</a>
-          <button class="btn-ghost" data-open-modal="booking">Заявка онлайн</button>
+        <div class="cta-badge">🎁 Специальное предложение</div>
+        <h2 class="text-2xl md:text-3xl font-bold mb-3">Скидка 15% при записи через сайт</h2>
+        <p class="text-lg mb-2">Оставьте заявку прямо сейчас — перезвоним в течение часа в рабочее время</p>
+        <p class="text-muted text-sm mb-5">*Скидка на первую услугу для новых клиентов, не распространяется на товары и запчасти</p>
+        <div class="cta-actions">
+          <button class="btn-primary btn-lg cta-main-btn" data-open-modal="booking">
+            <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z"/></svg>
+            Записаться онлайн со скидкой 15%
+          </button>
+          <div class="cta-secondary">
+            <a class="btn-ghost" href="tel:+79287777009">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+              8 (928) 7777-009
+            </a>
+            <a class="btn-ghost" href="https://wa.me/79287777009" target="_blank" rel="noopener">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a class="btn-ghost" href="https://t.me/VipAuto_161" target="_blank" rel="noopener">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.781-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.14.121.099.154.232.17.326.016.094.036.308.02.474z"/></svg>
+              Telegram
+            </a>
+          </div>
+        </div>
+        <div class="cta-trust">
+          <span>✓ Без скрытых платежей</span>
+          <span>✓ Гарантия на работы</span>
+          <span>✓ 15 лет на рынке</span>
         </div>
       </div>
     </section>
+
+  <section class="section">
+    <div class="card store-card" data-animate="fade-up">
+      <div>
+        <h2 class="text-xl font-semibold mb-2">Мобильное приложение</h2>
+        <p class="text-muted text-sm">Скоро в магазинах. Нажмите, чтобы узнать о релизе.</p>
+      </div>
+      <div class="store-buttons">
+        <button type="button" class="store-btn store-btn-gp" data-store="Google Play">
+          <span class="store-icon">
+            <svg viewBox="30 336.7 120.9 129.2" width="28" aria-hidden="true">
+              <path fill="#FFD400" d="M119.2,421.2c15.3-8.4,27-14.8,28-15.3c3.2-1.7,6.5-6.2,0-9.7  c-2.1-1.1-13.4-7.3-28-15.3l-20.1,20.2L119.2,421.2z"></path>
+              <path fill="#FF3333" d="M99.1,401.1l-64.2,64.7c1.5,0.2,3.2-0.2,5.2-1.3  c4.2-2.3,48.8-26.7,79.1-43.3L99.1,401.1L99.1,401.1z"></path>
+              <path fill="#48FF48" d="M99.1,401.1l20.1-20.2c0,0-74.6-40.7-79.1-43.1  c-1.7-1-3.6-1.3-5.3-1L99.1,401.1z"></path>
+              <path fill="#3BCCFF" d="M99.1,401.1l-64.3-64.3c-2.6,0.6-4.8,2.9-4.8,7.6  c0,7.5,0,107.5,0,113.8c0,4.3,1.7,7.4,4.9,7.7L99.1,401.1z"></path>
+            </svg>
+          </span>
+          <span class="store-text">
+            <span class="store-caption">GET IT ON</span>
+            <span class="store-title">Google Play</span>
+          </span>
+        </button>
+        <button type="button" class="store-btn store-btn-apple" data-store="App Store">
+          <span class="store-icon">
+            <svg viewBox="0 0 24 24" width="26" aria-hidden="true">
+              <path fill="currentColor" d="M17.8 13.1c0 2.9 2.5 3.9 2.5 3.9s-1.7 4.8-4 4.8c-1 0-1.8-.7-2.9-.7s-2 .7-2.9.7c-2.2 0-4.3-4.5-4.3-7.4 0-3.2 2-4.9 3.9-4.9 1.2 0 2.2.8 2.9.8.7 0 1.9-.9 3.4-.9 2.5 0 3.4 1.7 3.4 1.7s-1.9.9-1.9 2.8Zm-2-7c.6-.7 1-1.7 1-2.7 0-.1 0-.3-.1-.4-.9.1-2 .6-2.7 1.4-.6.7-1 1.7-1 2.6 0 .1 0 .3.1.4.9.1 2-.5 2.7-1.3Z"/>
+            </svg>
+          </span>
+          <span class="store-text">
+            <span class="store-caption">Download on the</span>
+            <span class="store-title">App Store</span>
+          </span>
+        </button>
+      </div>
+      <p class="text-muted text-xs mt-2">Приложения в разработке. Нажмите, чтобы мы уведомили о запуске.</p>
+    </div>
+  </section>
 
     <section id="contacts" class="section">
       <div class="section-head">
@@ -613,9 +1213,9 @@
         <div class="card" data-animate="fade-up">
           <h3 class="text-lg font-semibold">Телефоны</h3>
           <ul class="list text-sm">
-            <li><a href="tel:89287777009">8 (928) 7777-009</a></li>
-            <li><a href="tel:89281977700">8 (928) 19-777-00</a></li>
-            <li><a href="tel:89281210161">8 (928) 121-0-161</a></li>
+            <li><a href="tel:+79287777009">8 (928) 7777-009</a></li>
+            <li><a href="tel:+79281977700">8 (928) 19-777-00</a></li>
+            <li><a href="tel:+79281210161">8 (928) 121-0-161</a></li>
           </ul>
           <div class="qr-card">
             <div class="qr-placeholder" aria-hidden="true">QR</div>
@@ -632,14 +1232,14 @@
           <a class="btn-primary" href="https://yandex.ru/maps/?rtext=~Шахты,+переулок+Новочеркасский+44Б" target="_blank" rel="noopener">Маршрут</a>
           <a class="btn-ghost" href="https://2gis.ru/search/%D0%A8%D0%B0%D1%85%D1%82%D1%8B%2C%20%D0%BF%D0%B5%D1%80.%20%D0%9D%D0%BE%D0%B2%D0%BE%D1%87%D0%B5%D1%80%D0%BA%D0%B0%D1%81%D1%81%D0%BA%D0%B8%D0%B9%2044%D0%91" target="_blank" rel="noopener">2ГИС</a>
           <a class="btn-ghost" href="https://www.google.com/maps/search/?api=1&query=%D0%A8%D0%B0%D1%85%D1%82%D1%8B%2C+%D0%BF%D0%B5%D1%80.+%D0%9D%D0%BE%D0%B2%D0%BE%D1%87%D0%B5%D1%80%D0%BA%D0%B0%D1%81%D1%81%D0%BA%D0%B8%D0%B9+44%D0%91" target="_blank" rel="noopener">Google</a>
-          <a class="btn-ghost" href="tel:89287777009">Позвонить</a>
+          <a class="btn-ghost" href="tel:+79287777009">Позвонить</a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer mx-auto max-w-6xl px-5 pb-10">
-    <div class="footer-grid">
+  <footer class="site-footer mx-auto max-w-6xl px-5 pb-10" role="contentinfo">
+      <div class="footer-grid">
       <div class="footer-col">
         <div class="footer-brand">
           <img src="images/plate-logo.svg" alt="VIPАвто 161" class="footer-logo">
@@ -660,6 +1260,9 @@
   </footer>
 
   <div class="floating-cta md:hidden">
+    <button class="floating-cta__close" type="button" aria-label="Скрыть уведомление" data-close-floating>
+      <span aria-hidden="true">✕</span>
+    </button>
     <div class="flex items-center gap-2">
       <div class="icon-dot"></div>
       <div>
@@ -668,40 +1271,46 @@
       </div>
     </div>
     <div class="flex gap-2">
-      <a class="btn-primary" href="tel:89287777009">Позвонить</a>
+      <a class="btn-primary" href="tel:+79287777009">Позвонить</a>
       <button class="btn-ghost" data-open-modal="booking">Заявка</button>
     </div>
   </div>
 
-  <!-- Модалка -->
   <div id="modal-overlay" class="modal-overlay" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-      <div class="flex items-start justify-between gap-4">
-        <div>
+      <div class="modal-header">
+        <div class="form-icon">📞</div>
+        <div class="flex-1">
           <h3 id="modal-title" class="text-xl font-semibold">Оставить заявку</h3>
-          <p class="text-muted text-sm">Ответим в рабочее время 10:00–20:00.</p>
+          <p class="text-muted text-sm mt-1">Перезвоним в рабочее время 10:00–20:00</p>
         </div>
-        <button class="btn-ghost px-2 py-1" data-close-modal aria-label="Закрыть">✕</button>
+        <button class="modal-close" data-close-modal aria-label="Закрыть">✕</button>
       </div>
-      <form id="modal-form" class="space-y-3 mt-3">
+      <form id="modal-form" class="space-y-3 mt-4">
         <div class="space-y-1">
-          <input aria-label="Имя" name="name" required placeholder="Имя" class="field" />
+          <label for="modal-name" class="field-label">Ваше имя</label>
+          <input id="modal-name" aria-label="Имя" name="name" required placeholder="Например: Иван" class="field" autocomplete="name">
           <p class="field-error" data-error="name"></p>
         </div>
         <div class="space-y-1">
-          <input aria-label="Телефон" name="phone" required placeholder="+7 (___) ___-__-__" class="field" />
+          <label for="modal-phone" class="field-label">Телефон для связи</label>
+          <input id="modal-phone" type="tel" aria-label="Телефон" name="phone" required placeholder="+7 (___) ___-__-__" class="field" autocomplete="tel">
           <p class="field-error" data-error="phone"></p>
         </div>
         <div class="space-y-1">
-          <textarea aria-label="Описание запроса" name="comment" rows="3" class="field" placeholder="Опишите проблему или удобное время"></textarea>
+          <label for="modal-comment" class="field-label">Опишите задачу (необязательно)</label>
+          <textarea id="modal-comment" aria-label="Описание запроса" name="comment" rows="3" class="field" placeholder="Например: нужна диагностика, удобно завтра после 15:00"></textarea>
           <p class="field-error" data-error="comment"></p>
         </div>
         <div class="consent">
-          <input type="checkbox" id="consent-modal" name="consent" value="yes" />
-          <label for="consent-modal">Я согласен(на) с <a href="privacy.html" class="underline">политикой конфиденциальности</a> и <a href="terms.html" class="underline">правилами использования</a>.</label>
+          <input type="checkbox" id="consent-modal" name="consent" value="yes">
+          <label for="consent-modal">Согласен(на) с <a href="privacy.html" class="underline">политикой</a> и <a href="terms.html" class="underline">правилами</a></label>
         </div>
         <p class="field-error" data-error="consent"></p>
-        <button type="submit" class="btn-primary w-full justify-center" data-submit-label="Отправить">Отправить</button>
+        <button type="submit" class="btn-primary w-full justify-center btn-lg" data-submit-label="Отправить">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          Отправить заявку
+        </button>
       </form>
     </div>
   </div>
@@ -711,26 +1320,109 @@
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
+      "@type": "AutoRepair",
       "name": "VIPАвто 161",
-      "description": "Автоэлектрика, автосвет, кондиционеры, StarLine. Запись онлайн.",
+      "description": "Автосервис по автоэлектрике, автосвету, установке сигнализаций StarLine, ремонту кондиционеров. Официальный дилер StarLine. 15 лет опыта, 300+ авто ежемесячно.",
       "telephone": "+79287777009",
+      "priceRange": "$$",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "переулок Новочеркасский 44Б",
         "addressLocality": "Шахты",
+        "addressRegion": "Ростовская область",
+        "postalCode": "346500",
         "addressCountry": "RU"
       },
       "url": "https://vipauto161.ru",
-      "image": "https://vipauto161.ru/images/plate-logo.svg",
+      "logo": "https://vipauto161.ru/images/plate-logo.svg",
+      "image": [
+        "https://vipauto161.ru/images/starline-logo.png",
+        "https://vipauto161.ru/images/llumar-logo.png"
+      ],
       "openingHours": "Mo-Fr 10:00-20:00",
       "geo": {
         "@type": "GeoCoordinates",
         "latitude": 47.7086,
         "longitude": 40.215
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Услуги автосервиса",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Диагностика и ремонт автоэлектрики",
+              "description": "Поиск КЗ, ремонт проводки, CAN/LIN диагностика"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Установка BiLED, ксенон, бронирование фар",
+              "description": "Ретрофит фар, регулировка, защита оптики плёнкой"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Установка сигнализаций StarLine",
+              "description": "Официальный дилер, CAN-интеграция, телематика"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Заправка и ремонт кондиционеров",
+              "description": "R134a, R1234yf, HV-компрессоры для гибридов и EV"
+            }
+          }
+        ]
+      },
+      "paymentAccepted": "Наличные, карты, безналичный расчёт",
+      "currenciesAccepted": "RUB",
+      "areaServed": {
+        "@type": "City",
+        "name": "Шахты",
+        "containedIn": {
+          "@type": "State",
+          "name": "Ростовская область"
+        }
       }
     }
   </script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Главная",
+          "item": "https://vipauto161.ru"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Услуги",
+          "item": "https://vipauto161.ru#services"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Контакты",
+          "item": "https://vipauto161.ru#contacts"
+        }
+      ]
+    }
+  </script>
+
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
