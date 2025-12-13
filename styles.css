@@ -2134,12 +2134,14 @@ header {
 /* Shop logo styling */
 .shop-card-with-logo {
   position: relative;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.55) 0%, rgba(20, 20, 30, 0.45) 100%);
+  background: linear-gradient(135deg, rgba(122, 91, 255, 0.06) 0%, rgba(122, 91, 255, 0.12) 100%);
+  border: 1px solid rgba(122, 91, 255, 0.15);
   overflow: hidden;
 }
 
 .theme-dark .shop-card-with-logo {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(15, 15, 25, 0.6) 100%);
+  background: linear-gradient(135deg, rgba(122, 91, 255, 0.08) 0%, rgba(122, 91, 255, 0.14) 100%);
+  border-color: rgba(122, 91, 255, 0.2);
 }
 
 .shop-logo-container {
@@ -2156,25 +2158,16 @@ header {
   transform: scale(1.05);
 }
 
+.shop-card-with-logo:hover {
+  border-color: rgba(122, 91, 255, 0.3);
+  background: linear-gradient(135deg, rgba(122, 91, 255, 0.08) 0%, rgba(122, 91, 255, 0.15) 100%);
+}
+
 .shop-logo-img {
   display: block;
   height: auto;
   max-width: 220px;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
-}
-
-/* Enhance text contrast on dark background */
-.shop-card-with-logo h2,
-.shop-card-with-logo .text-muted,
-.shop-card-with-logo .list li,
-.shop-card-with-logo strong,
-.shop-card-with-logo p {
-  color: rgba(255, 255, 255, 0.95);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-.shop-card-with-logo .text-muted {
-  color: rgba(255, 255, 255, 0.8);
+  filter: drop-shadow(0 2px 8px rgba(122, 91, 255, 0.25));
 }
 
 /* Mobile adjustments */
