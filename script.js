@@ -1,11 +1,103 @@
+// #region agent log - iOS SVG Debug Instrumentation
+(function() {
+  try {
+    const deviceInfo = {
+      location: 'script.js:3',
+      message: 'Script loaded - device detection',
+      data: {
+        userAgent: navigator.userAgent,
+        isIOS: /iPad|iPhone|iPod/.test(navigator.userAgent),
+        isAndroid: /Android/.test(navigator.userAgent),
+        isSafari: /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent),
+        viewportWidth: window.innerWidth,
+        viewportHeight: window.innerHeight,
+        devicePixelRatio: window.devicePixelRatio,
+        iosVersion: navigator.userAgent.match(/OS (\d+)_/) ? navigator.userAgent.match(/OS (\d+)_/)[1] : null
+      },
+      timestamp: Date.now(),
+      sessionId: 'debug-session',
+      runId: 'initial',
+      hypothesisId: 'A,B,C,D,E'
+    };
+    console.log('🔍 [DEBUG] Script loaded:', deviceInfo.data);
+    fetch('http://127.0.0.1:7242/ingest/0b01f805-d660-40ce-ba0c-66524f415d04', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(deviceInfo)
+    }).catch(err => console.warn('⚠️ [DEBUG] Fetch failed:', err));
+  } catch (e) {
+    console.error('❌ [DEBUG] Error in device detection:', e);
+  }
+})();
+// #endregion
+
 // Wait for DOM to be ready
 document.addEventListener('DOMContentLoaded', function() {
+
+// #region agent log - Preloader SVG check
+(function() {
+  try {
+    const preloaderSvg = document.querySelector('.preloader-logo');
+    const gradient = document.querySelector('#preloaderBgOptimized');
+    const svgData = {
+      location: 'script.js:37',
+      message: 'Preloader SVG DOM check',
+      data: {
+        svgExists: !!preloaderSvg,
+        svgTagName: preloaderSvg ? preloaderSvg.tagName : null,
+        svgClientWidth: preloaderSvg ? preloaderSvg.clientWidth : null,
+        svgClientHeight: preloaderSvg ? preloaderSvg.clientHeight : null,
+        gradientExists: !!gradient,
+        viewBoxAttr: preloaderSvg ? preloaderSvg.getAttribute('viewBox') : null,
+        preserveAspectRatio: preloaderSvg ? preloaderSvg.getAttribute('preserveAspectRatio') : null
+      },
+      timestamp: Date.now(),
+      sessionId: 'debug-session',
+      runId: 'initial',
+      hypothesisId: 'A,D,E'
+    };
+    console.log('🔍 [DEBUG] Preloader SVG:', svgData.data);
+    fetch('http://127.0.0.1:7242/ingest/0b01f805-d660-40ce-ba0c-66524f415d04', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(svgData)
+    }).catch(() => {});
+  } catch (e) {
+    console.error('❌ [DEBUG] Preloader check error:', e);
+  }
+})();
+// #endregion
 
 // Preloader - activate animation immediately
 const preloaderSvg = document.querySelector('.preloader-logo');
 if (preloaderSvg) {
   requestAnimationFrame(() => {
     preloaderSvg.classList.add('active');
+    // #region agent log
+    try {
+      const animData = {
+        location: 'script.js:70',
+        message: 'Preloader animation activated',
+        data: {
+          classList: Array.from(preloaderSvg.classList),
+          computedDisplay: window.getComputedStyle(preloaderSvg).display,
+          computedOpacity: window.getComputedStyle(preloaderSvg).opacity
+        },
+        timestamp: Date.now(),
+        sessionId: 'debug-session',
+        runId: 'initial',
+        hypothesisId: 'B'
+      };
+      console.log('🎬 [DEBUG] Preloader animation:', animData.data);
+      fetch('http://127.0.0.1:7242/ingest/0b01f805-d660-40ce-ba0c-66524f415d04', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(animData)
+      }).catch(() => {});
+    } catch (e) {
+      console.error('❌ [DEBUG] Animation error:', e);
+    }
+    // #endregion
   });
 }
 
@@ -25,6 +117,49 @@ setTimeout(() => {
   const logoSvg = document.querySelector('header .plate-logo');
   if (logoSvg && logoSvg.tagName === 'svg') {
     logoSvg.classList.add('active');
+    // #region agent log
+    try {
+      const bbox = logoSvg.getBBox ? logoSvg.getBBox() : null;
+      const computed = window.getComputedStyle(logoSvg);
+      const gradient = document.querySelector('#headerPlateBgOptimized');
+      const textElements = logoSvg.querySelectorAll('text');
+      const logoData = {
+        location: 'script.js:108',
+        message: 'Header logo SVG animation activated',
+        data: {
+          svgClientWidth: logoSvg.clientWidth,
+          svgClientHeight: logoSvg.clientHeight,
+          bboxWidth: bbox ? bbox.width : null,
+          bboxHeight: bbox ? bbox.height : null,
+          computedDisplay: computed.display,
+          computedWidth: computed.width,
+          computedHeight: computed.height,
+          gradientExists: !!gradient,
+          textElementsCount: textElements.length,
+          textFills: Array.from(textElements).map(t => ({
+            text: t.textContent,
+            fill: t.getAttribute('fill'),
+            computedFill: window.getComputedStyle(t).fill,
+            fontFamily: window.getComputedStyle(t).fontFamily
+          })),
+          classList: Array.from(logoSvg.classList)
+        },
+        timestamp: Date.now(),
+        sessionId: 'debug-session',
+        runId: 'initial',
+        hypothesisId: 'A,C,D,E'
+      };
+      console.log('🏷️ [DEBUG] Header logo:', logoData.data);
+      console.table(logoData.data.textFills);
+      fetch('http://127.0.0.1:7242/ingest/0b01f805-d660-40ce-ba0c-66524f415d04', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(logoData)
+      }).catch(() => {});
+    } catch (e) {
+      console.error('❌ [DEBUG] Header logo error:', e);
+    }
+    // #endregion
   }
 }, 3500);
 
@@ -760,4 +895,55 @@ phoneInputs.forEach(input => {
 
 // End of DOMContentLoaded
 });
+
+// #region agent log - Final SVG render check after full page load
+window.addEventListener('load', function() {
+  try {
+    setTimeout(() => {
+      const preloaderSvg = document.querySelector('.preloader-logo');
+      const headerSvg = document.querySelector('header .plate-logo');
+      const finalData = {
+        location: 'script.js:890',
+        message: 'Full page load complete - final SVG state',
+        data: {
+          preloader: preloaderSvg ? {
+            exists: true,
+            clientWidth: preloaderSvg.clientWidth,
+            clientHeight: preloaderSvg.clientHeight,
+            visible: window.getComputedStyle(preloaderSvg).display !== 'none',
+            gradientRendered: !!document.querySelector('#preloaderBgOptimized'),
+            textElements: preloaderSvg.querySelectorAll('text').length
+          } : { exists: false },
+          headerLogo: headerSvg ? {
+            exists: true,
+            clientWidth: headerSvg.clientWidth,
+            clientHeight: headerSvg.clientHeight,
+            visible: window.getComputedStyle(headerSvg).display !== 'none',
+            gradientRendered: !!document.querySelector('#headerPlateBgOptimized'),
+            textElements: headerSvg.querySelectorAll('text').length,
+            computedColor: window.getComputedStyle(headerSvg).color
+          } : { exists: false },
+          performance: {
+            domContentLoaded: performance.timing.domContentLoadedEventEnd - performance.timing.navigationStart,
+            fullLoad: performance.timing.loadEventEnd - performance.timing.navigationStart
+          }
+        },
+        timestamp: Date.now(),
+        sessionId: 'debug-session',
+        runId: 'initial',
+        hypothesisId: 'A,B,C,D,E'
+      };
+      console.log('✅ [DEBUG] Final page load:', finalData.data);
+      console.log('⏱️ [DEBUG] Performance:', finalData.data.performance);
+      fetch('http://127.0.0.1:7242/ingest/0b01f805-d660-40ce-ba0c-66524f415d04', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(finalData)
+      }).catch(() => {});
+    }, 500);
+  } catch (e) {
+    console.error('❌ [DEBUG] Final check error:', e);
+  }
+});
+// #endregion
 
