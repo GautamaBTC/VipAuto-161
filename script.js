@@ -19,12 +19,12 @@
       runId: 'initial',
       hypothesisId: 'A,B,C,D,E'
     };
-    console.log('🔍 [DEBUG] Script loaded:', deviceInfo.data);
-    fetch('http://127.0.0.1:7242/ingest/0b01f805-d660-40ce-ba0c-66524f415d04', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(deviceInfo)
-    }).catch(err => console.warn('⚠️ [DEBUG] Fetch failed:', err));
+      // console.log('🔍 [DEBUG] Script loaded:', deviceInfo.data);
+      fetch('http://127.0.0.1:7242/ingest/0b01f805-d660-40ce-ba0c-66524f415d04', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(deviceInfo)
+      }).catch(err => {/* console.warn('⚠️ [DEBUG] Fetch failed:', err) */});
   } catch (e) {
     console.error('❌ [DEBUG] Error in device detection:', e);
   }
@@ -56,49 +56,67 @@ document.addEventListener('DOMContentLoaded', function() {
       runId: 'initial',
       hypothesisId: 'A,D,E'
     };
-    console.log('🔍 [DEBUG] Preloader SVG:', svgData.data);
+    // console.log('🔍 [DEBUG] Preloader SVG:', svgData.data);
     fetch('http://127.0.0.1:7242/ingest/0b01f805-d660-40ce-ba0c-66524f415d04', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(svgData)
     }).catch(() => {});
   } catch (e) {
-    console.error('❌ [DEBUG] Preloader check error:', e);
+    // console.error('❌ [DEBUG] Preloader check error:', e);
   }
 })();
 // #endregion
 
-// Preloader - activate animation immediately
+// Preloader - activate animation with iOS-compatible timing
 const preloaderSvg = document.querySelector('.preloader-logo');
 if (preloaderSvg) {
-  requestAnimationFrame(() => {
+  // iOS Safari needs extra time to compute styles - use setTimeout instead of rAF
+  setTimeout(() => {
     preloaderSvg.classList.add('active');
     // #region agent log
     try {
+      // Check text fill colors specifically for iOS
+      const textElements = preloaderSvg.querySelectorAll('text');
+      const textDebug = Array.from(textElements).map(t => {
+        const computed = window.getComputedStyle(t);
+        return {
+          text: t.textContent,
+          fillAttr: t.getAttribute('fill'),
+          styleFill: t.style.fill,
+          computedFill: computed.fill,
+          computedColor: computed.color,
+          parentColor: window.getComputedStyle(t.parentElement).color
+        };
+      });
+      
       const animData = {
         location: 'script.js:70',
-        message: 'Preloader animation activated',
+        message: 'Preloader animation activated (iOS timing fix)',
         data: {
           classList: Array.from(preloaderSvg.classList),
           computedDisplay: window.getComputedStyle(preloaderSvg).display,
-          computedOpacity: window.getComputedStyle(preloaderSvg).opacity
+          computedOpacity: window.getComputedStyle(preloaderSvg).opacity,
+          textElements: textDebug,
+          isIOS: /iPad|iPhone|iPod/.test(navigator.userAgent)
         },
         timestamp: Date.now(),
         sessionId: 'debug-session',
         runId: 'initial',
-        hypothesisId: 'B'
+        hypothesisId: 'F,G,H,I,J'
       };
-      console.log('🎬 [DEBUG] Preloader animation:', animData.data);
+      // console.log('🎬 [DEBUG] Preloader animation:', animData.data);
+      // console.table(textDebug);
       fetch('http://127.0.0.1:7242/ingest/0b01f805-d660-40ce-ba0c-66524f415d04', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(animData)
       }).catch(() => {});
     } catch (e) {
-      console.error('❌ [DEBUG] Animation error:', e);
+      // console.error('❌ [DEBUG] Animation error:', e);
     }
     // #endregion
-  });
+  }, 50); // 50ms delay for iOS
 }
 
 // Preloader - hide after 3s (fast branding experience)
@@ -112,54 +130,64 @@ setTimeout(() => {
   }
 }, 3000);
 
-// Logo SVG animation - start after preloader
+// Logo SVG animation - start after preloader (iOS-compatible timing)
 setTimeout(() => {
   const logoSvg = document.querySelector('header .plate-logo');
   if (logoSvg && logoSvg.tagName === 'svg') {
     logoSvg.classList.add('active');
-    // #region agent log
-    try {
-      const bbox = logoSvg.getBBox ? logoSvg.getBBox() : null;
-      const computed = window.getComputedStyle(logoSvg);
-      const gradient = document.querySelector('#headerPlateBgOptimized');
-      const textElements = logoSvg.querySelectorAll('text');
-      const logoData = {
-        location: 'script.js:108',
-        message: 'Header logo SVG animation activated',
-        data: {
-          svgClientWidth: logoSvg.clientWidth,
-          svgClientHeight: logoSvg.clientHeight,
-          bboxWidth: bbox ? bbox.width : null,
-          bboxHeight: bbox ? bbox.height : null,
-          computedDisplay: computed.display,
-          computedWidth: computed.width,
-          computedHeight: computed.height,
-          gradientExists: !!gradient,
-          textElementsCount: textElements.length,
-          textFills: Array.from(textElements).map(t => ({
-            text: t.textContent,
-            fill: t.getAttribute('fill'),
-            computedFill: window.getComputedStyle(t).fill,
-            fontFamily: window.getComputedStyle(t).fontFamily
-          })),
-          classList: Array.from(logoSvg.classList)
-        },
-        timestamp: Date.now(),
-        sessionId: 'debug-session',
-        runId: 'initial',
-        hypothesisId: 'A,C,D,E'
-      };
-      console.log('🏷️ [DEBUG] Header logo:', logoData.data);
-      console.table(logoData.data.textFills);
-      fetch('http://127.0.0.1:7242/ingest/0b01f805-d660-40ce-ba0c-66524f415d04', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(logoData)
-      }).catch(() => {});
-    } catch (e) {
-      console.error('❌ [DEBUG] Header logo error:', e);
-    }
-    // #endregion
+    
+    // Extra delay for iOS to compute styles
+    setTimeout(() => {
+      // #region agent log
+      try {
+        const bbox = logoSvg.getBBox ? logoSvg.getBBox() : null;
+        const computed = window.getComputedStyle(logoSvg);
+        const gradient = document.querySelector('#headerPlateBgOptimized');
+        const textElements = logoSvg.querySelectorAll('text');
+        const logoData = {
+          location: 'script.js:108',
+          message: 'Header logo SVG animation activated (iOS timing fix)',
+          data: {
+            svgClientWidth: logoSvg.clientWidth,
+            svgClientHeight: logoSvg.clientHeight,
+            bboxWidth: bbox ? bbox.width : null,
+            bboxHeight: bbox ? bbox.height : null,
+            computedDisplay: computed.display,
+            computedWidth: computed.width,
+            computedHeight: computed.height,
+            gradientExists: !!gradient,
+            textElementsCount: textElements.length,
+            textFills: Array.from(textElements).map(t => {
+              const tComputed = window.getComputedStyle(t);
+              return {
+                text: t.textContent,
+                fillAttr: t.getAttribute('fill'),
+                styleFill: t.style.fill,
+                computedFill: tComputed.fill,
+                computedColor: tComputed.color,
+                fontFamily: tComputed.fontFamily
+              };
+            }),
+            classList: Array.from(logoSvg.classList),
+            isIOS: /iPad|iPhone|iPod/.test(navigator.userAgent)
+          },
+          timestamp: Date.now(),
+          sessionId: 'debug-session',
+          runId: 'initial',
+          hypothesisId: 'F,G,H,I,J'
+        };
+        // console.log('🏷️ [DEBUG] Header logo:', logoData.data);
+        // console.table(logoData.data.textFills);
+        fetch('http://127.0.0.1:7242/ingest/0b01f805-d660-40ce-ba0c-66524f415d04', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(logoData)
+        }).catch(() => {});
+      } catch (e) {
+        // console.error('❌ [DEBUG] Header logo error:', e);
+      }
+      // #endregion
+    }, 100); // Extra 100ms for iOS to compute styles
   }
 }, 3500);
 
@@ -933,8 +961,8 @@ window.addEventListener('load', function() {
         runId: 'initial',
         hypothesisId: 'A,B,C,D,E'
       };
-      console.log('✅ [DEBUG] Final page load:', finalData.data);
-      console.log('⏱️ [DEBUG] Performance:', finalData.data.performance);
+      // console.log('✅ [DEBUG] Final page load:', finalData.data);
+      // console.log('⏱️ [DEBUG] Performance:', finalData.data.performance);
       fetch('http://127.0.0.1:7242/ingest/0b01f805-d660-40ce-ba0c-66524f415d04', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -942,7 +970,7 @@ window.addEventListener('load', function() {
       }).catch(() => {});
     }, 500);
   } catch (e) {
-    console.error('❌ [DEBUG] Final check error:', e);
+    // console.error('❌ [DEBUG] Final check error:', e);
   }
 });
 // #endregion
